@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**\DevOwl\ComplyforceApiClient\Model\InlineResponse2001User**](InlineResponse2001User.md) |  | 
+**order** | [**\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponse**](OrderReportGetResponse.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

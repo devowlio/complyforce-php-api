@@ -1,28 +1,26 @@
 # DevOwl\ComplyforceApiClient\VendorAPIKeyApi
 
-All URIs are relative to *https://api.complyforce.com/1.0.0*
+All URIs are relative to *https://api.complyforce.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vendorApiKeyDelete**](VendorAPIKeyApi.md#vendorapikeydelete) | **DELETE** /vendor/api-key | Delete API key
-[**vendorApiKeyPost**](VendorAPIKeyApi.md#vendorapikeypost) | **POST** /vendor/api-key | Create API key
-[**vendorApiKeysGet**](VendorAPIKeyApi.md#vendorapikeysget) | **GET** /vendor/api-keys | Get API keys for a vendor
+[**vendorApiKeyValidateGet**](VendorAPIKeyApi.md#vendorapikeyvalidateget) | **GET** /vendor/api-key/validate | Validate API key authorization
 
-# **vendorApiKeyDelete**
-> vendorApiKeyDelete($body)
+# **vendorApiKeyValidateGet**
+> \DevOwl\ComplyforceApiClient\Model\InlineResponse2002 vendorApiKeyValidateGet()
 
-Delete API key
+Validate API key authorization
 
-Delete API key by revoking it
+Checks whether the provided API key is valid and, if successful, returns the vendor name linked to that key.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: jwt
-$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Configure API key authorization: apiKey
+$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
 
 $apiInstance = new DevOwl\ComplyforceApiClient\Api\VendorAPIKeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -30,131 +28,18 @@ $apiInstance = new DevOwl\ComplyforceApiClient\Api\VendorAPIKeyApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \DevOwl\ComplyforceApiClient\Model\VendorApikeyBody1(); // \DevOwl\ComplyforceApiClient\Model\VendorApikeyBody1 | 
 
 try {
-    $apiInstance->vendorApiKeyDelete($body);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorAPIKeyApi->vendorApiKeyDelete: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\DevOwl\ComplyforceApiClient\Model\VendorApikeyBody1**](../Model/VendorApikeyBody1.md)|  | [optional]
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[jwt](../../README.md#jwt)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **vendorApiKeyPost**
-> \DevOwl\ComplyforceApiClient\Model\VendorApiKey vendorApiKeyPost($body)
-
-Create API key
-
-Creates a random API key for logged in user to given vendor.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: jwt
-$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
-
-$apiInstance = new DevOwl\ComplyforceApiClient\Api\VendorAPIKeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$body = new \DevOwl\ComplyforceApiClient\Model\VendorApikeyBody(); // \DevOwl\ComplyforceApiClient\Model\VendorApikeyBody | 
-
-try {
-    $result = $apiInstance->vendorApiKeyPost($body);
+    $result = $apiInstance->vendorApiKeyValidateGet();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VendorAPIKeyApi->vendorApiKeyPost: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling VendorAPIKeyApi->vendorApiKeyValidateGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\DevOwl\ComplyforceApiClient\Model\VendorApikeyBody**](../Model/VendorApikeyBody.md)|  | [optional]
-
-### Return type
-
-[**\DevOwl\ComplyforceApiClient\Model\VendorApiKey**](../Model/VendorApiKey.md)
-
-### Authorization
-
-[jwt](../../README.md#jwt)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **vendorApiKeysGet**
-> \DevOwl\ComplyforceApiClient\Model\InlineResponse2002 vendorApiKeysGet($vendorUuid, $showAll)
-
-Get API keys for a vendor
-
-Gets all API keys for specific vendor by using vendor uuid and optionally showAll as true to show all keys. If showAll is true, the response will include all keys, including revoked ones.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: jwt
-$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
-
-$apiInstance = new DevOwl\ComplyforceApiClient\Api\VendorAPIKeyApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$vendorUuid = new \DevOwl\ComplyforceApiClient\Model\null(); //  | 
-$showAll = new \DevOwl\ComplyforceApiClient\Model\null(); //  | 
-
-try {
-    $result = $apiInstance->vendorApiKeysGet($vendorUuid, $showAll);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling VendorAPIKeyApi->vendorApiKeysGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vendorUuid** | [****](../Model/.md)|  |
- **showAll** | [****](../Model/.md)|  | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -162,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[jwt](../../README.md#jwt)
+[apiKey](../../README.md#apiKey)
 
 ### HTTP request headers
 

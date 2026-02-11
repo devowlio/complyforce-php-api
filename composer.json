@@ -8,7 +8,7 @@
     "rest",
     "api"
   ],
-  "homepage": "http://swagger.io",
+  "homepage": "https://complyforce.com",
   "license": "MIT",
   "authors": [
     {
@@ -37,5 +37,7 @@
     "psr-4": {
       "DevOwl\\ComplyforceApiClient\\": "test/"
     }
-  }
+  },
+  "majorOpenApiSpecVersion": "v1",
+  "publishVersion": "1.5.0"
 }
