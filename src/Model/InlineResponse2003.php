@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportGetResponseVendorBrand
+ * InlineResponse2003
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportGetResponseVendorBrand Class Doc Comment
+ * InlineResponse2003 Class Doc Comment
  *
  * @category Class
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
+class InlineResponse2003 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportGetResponse_vendorBrand';
+    protected static $swaggerModelName = 'inline_response_200_3';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'uuid' => '',
-        'domain' => '',
-        'logo' => '\DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo',
-        'properties' => '\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties'
+        'vendorName' => ''
     ];
 
     /**
@@ -68,10 +65,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'uuid' => 'uuid',
-        'domain' => null,
-        'logo' => null,
-        'properties' => null
+        'vendorName' => null
     ];
 
     /**
@@ -101,10 +95,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid',
-        'domain' => 'domain',
-        'logo' => 'logo',
-        'properties' => 'properties'
+        'vendorName' => 'vendorName'
     ];
 
     /**
@@ -113,10 +104,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid',
-        'domain' => 'setDomain',
-        'logo' => 'setLogo',
-        'properties' => 'setProperties'
+        'vendorName' => 'setVendorName'
     ];
 
     /**
@@ -125,10 +113,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid',
-        'domain' => 'getDomain',
-        'logo' => 'getLogo',
-        'properties' => 'getProperties'
+        'vendorName' => 'getVendorName'
     ];
 
     /**
@@ -189,10 +174,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
-        $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
-        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
+        $this->container['vendorName'] = isset($data['vendorName']) ? $data['vendorName'] : null;
     }
 
     /**
@@ -204,14 +186,8 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['uuid'] === null) {
-            $invalidProperties[] = "'uuid' can't be null";
-        }
-        if ($this->container['logo'] === null) {
-            $invalidProperties[] = "'logo' can't be null";
-        }
-        if ($this->container['properties'] === null) {
-            $invalidProperties[] = "'properties' can't be null";
+        if ($this->container['vendorName'] === null) {
+            $invalidProperties[] = "'vendorName' can't be null";
         }
         return $invalidProperties;
     }
@@ -229,97 +205,25 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets uuid
+     * Gets vendorName
      *
      * @return 
      */
-    public function getUuid()
+    public function getVendorName()
     {
-        return $this->container['uuid'];
+        return $this->container['vendorName'];
     }
 
     /**
-     * Sets uuid
+     * Sets vendorName
      *
-     * @param  $uuid uuid
+     * @param  $vendorName The name (alias) of the vendor associated with the API key
      *
      * @return $this
      */
-    public function setUuid($uuid)
+    public function setVendorName($vendorName)
     {
-        $this->container['uuid'] = $uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets domain
-     *
-     * @return 
-     */
-    public function getDomain()
-    {
-        return $this->container['domain'];
-    }
-
-    /**
-     * Sets domain
-     *
-     * @param  $domain domain
-     *
-     * @return $this
-     */
-    public function setDomain($domain)
-    {
-        $this->container['domain'] = $domain;
-
-        return $this;
-    }
-
-    /**
-     * Gets logo
-     *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo
-     */
-    public function getLogo()
-    {
-        return $this->container['logo'];
-    }
-
-    /**
-     * Sets logo
-     *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo $logo logo
-     *
-     * @return $this
-     */
-    public function setLogo($logo)
-    {
-        $this->container['logo'] = $logo;
-
-        return $this;
-    }
-
-    /**
-     * Gets properties
-     *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties
-     */
-    public function getProperties()
-    {
-        return $this->container['properties'];
-    }
-
-    /**
-     * Sets properties
-     *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties $properties properties
-     *
-     * @return $this
-     */
-    public function setProperties($properties)
-    {
-        $this->container['properties'] = $properties;
+        $this->container['vendorName'] = $vendorName;
 
         return $this;
     }

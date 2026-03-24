@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2002Test
+ * OrderListItemLastStatusUpdateTest
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ namespace DevOwl\ComplyforceApiClient;
 use PHPUnit\Framework\TestCase;
 
 /**
- * InlineResponse2002Test Class Doc Comment
+ * OrderListItemLastStatusUpdateTest Class Doc Comment
  *
  * @category    Class
- * @description InlineResponse2002
+ * @description OrderListItemLastStatusUpdate
  * @package     DevOwl\ComplyforceApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse2002Test extends TestCase
+class OrderListItemLastStatusUpdateTest extends TestCase
 {
 
     /**
@@ -71,23 +71,58 @@ class InlineResponse2002Test extends TestCase
     }
 
     /**
-     * Test "InlineResponse2002"
+     * Test "OrderListItemLastStatusUpdate"
      */
-    public function testInlineResponse2002()
+    public function testOrderListItemLastStatusUpdate()
     {
     }
 
     /**
-     * Test attribute "data"
+     * Test attribute "id"
      */
-    public function testPropertyData()
+    public function testPropertyId()
     {
     }
 
     /**
-     * Test attribute "responseMetadata"
+     * Test attribute "uuid"
      */
-    public function testPropertyResponseMetadata()
+    public function testPropertyUuid()
+    {
+    }
+
+    /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+    }
+
+    /**
+     * Test attribute "errorType"
+     */
+    public function testPropertyErrorType()
+    {
+    }
+
+    /**
+     * Test attribute "progressInPercent"
+     */
+    public function testPropertyProgressInPercent()
+    {
+    }
+
+    /**
+     * Test attribute "updatedAt"
+     */
+    public function testPropertyUpdatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "createdAt"
+     */
+    public function testPropertyCreatedAt()
     {
     }
 }

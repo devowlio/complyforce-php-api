@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderGetResponseTest
+ * OrderListItemTest
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ namespace DevOwl\ComplyforceApiClient;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OrderGetResponseTest Class Doc Comment
+ * OrderListItemTest Class Doc Comment
  *
  * @category    Class
- * @description Get order entity
+ * @description Order summary for list view
  * @package     DevOwl\ComplyforceApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class OrderGetResponseTest extends TestCase
+class OrderListItemTest extends TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class OrderGetResponseTest extends TestCase
     }
 
     /**
-     * Test "OrderGetResponse"
+     * Test "OrderListItem"
      */
-    public function testOrderGetResponse()
+    public function testOrderListItem()
     {
     }
 
@@ -99,13 +99,6 @@ class OrderGetResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "scanFeaturesRequested"
-     */
-    public function testPropertyScanFeaturesRequested()
-    {
-    }
-
-    /**
      * Test attribute "scanDomain"
      */
     public function testPropertyScanDomain()
@@ -113,37 +106,23 @@ class OrderGetResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "scanUrlsRequested"
+     * Test attribute "scanUrlsRequestedCount"
      */
-    public function testPropertyScanUrlsRequested()
+    public function testPropertyScanUrlsRequestedCount()
     {
     }
 
     /**
-     * Test attribute "scanUrlsLimit"
+     * Test attribute "reportScanUrlsExecutedCount"
      */
-    public function testPropertyScanUrlsLimit()
+    public function testPropertyReportScanUrlsExecutedCount()
     {
     }
 
     /**
-     * Test attribute "scanPriority"
+     * Test attribute "report"
      */
-    public function testPropertyScanPriority()
-    {
-    }
-
-    /**
-     * Test attribute "scanFeaturesExecuted"
-     */
-    public function testPropertyScanFeaturesExecuted()
-    {
-    }
-
-    /**
-     * Test attribute "scanUrlsExecuted"
-     */
-    public function testPropertyScanUrlsExecuted()
+    public function testPropertyReport()
     {
     }
 
@@ -155,23 +134,9 @@ class OrderGetResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "reportAvailability"
+     * Test attribute "errorType"
      */
-    public function testPropertyReportAvailability()
-    {
-    }
-
-    /**
-     * Test attribute "reportDeletionReason"
-     */
-    public function testPropertyReportDeletionReason()
-    {
-    }
-
-    /**
-     * Test attribute "reportAvailableUntil"
-     */
-    public function testPropertyReportAvailableUntil()
+    public function testPropertyErrorType()
     {
     }
 
@@ -179,6 +144,27 @@ class OrderGetResponseTest extends TestCase
      * Test attribute "createdAt"
      */
     public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "lastStatusUpdate"
+     */
+    public function testPropertyLastStatusUpdate()
+    {
+    }
+
+    /**
+     * Test attribute "reportAvailability"
+     */
+    public function testPropertyReportAvailability()
+    {
+    }
+
+    /**
+     * Test attribute "reportAvailableUntil"
+     */
+    public function testPropertyReportAvailableUntil()
     {
     }
 
@@ -193,20 +179,6 @@ class OrderGetResponseTest extends TestCase
      * Test attribute "vendorBrandChannel"
      */
     public function testPropertyVendorBrandChannel()
-    {
-    }
-
-    /**
-     * Test attribute "statusUpdates"
-     */
-    public function testPropertyStatusUpdates()
-    {
-    }
-
-    /**
-     * Test attribute "report"
-     */
-    public function testPropertyReport()
     {
     }
 }

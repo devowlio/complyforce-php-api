@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**vendorApiKeyValidateGet**](VendorAPIKeyApi.md#vendorapikeyvalidateget) | **GET** /vendor/api-key/validate | Validate API key authorization
 
 # **vendorApiKeyValidateGet**
-> \DevOwl\ComplyforceApiClient\Model\InlineResponse2002 vendorApiKeyValidateGet()
+> \DevOwl\ComplyforceApiClient\Model\InlineResponse2003 vendorApiKeyValidateGet()
 
 Validate API key authorization
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\DevOwl\ComplyforceApiClient\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
+[**\DevOwl\ComplyforceApiClient\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 

@@ -1,10 +1,11 @@
-# InlineResponse2002
+# OrderListItemVendorBrand
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [****](.md) |  | 
-**responseMetadata** | [**\DevOwl\ComplyforceApiClient\Model\CursorPaginationResponseMetadata**](CursorPaginationResponseMetadata.md) |  | 
+**id** | [****](.md) |  | 
+**uuid** | [****](.md) |  | 
+**name** | [****](.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

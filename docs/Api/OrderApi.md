@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**orderGet**](OrderApi.md#orderget) | **GET** /order | Get order
 [**orderPost**](OrderApi.md#orderpost) | **POST** /order | Create order
-[**orderProgressGet**](OrderApi.md#orderprogressget) | **GET** /order/progress | Get order progress
+[**ordersGet**](OrderApi.md#ordersget) | **GET** /orders | Get orders overview
 
 # **orderGet**
 > \DevOwl\ComplyforceApiClient\Model\InlineResponse200 orderGet($orderUuid, $statusUpdates, $report)
@@ -118,30 +118,43 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **orderProgressGet**
-> \DevOwl\ComplyforceApiClient\Model\OrderProgressResponse orderProgressGet($orderUuid)
+# **ordersGet**
+> \DevOwl\ComplyforceApiClient\Model\InlineResponse2002 ordersGet($vendorUuid, $cursor, $limit, $dateFrom, $dateTo, $billingId, $status, $brandUuid, $channelUuid)
 
-Get order progress
+Get orders overview
 
-Progress of the order as a percentage.
+List orders for the authenticated vendor. Supports cursor-based pagination and optional filters by date range, billing, status, brand and channel.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: jwt
+$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
 
 $apiInstance = new DevOwl\ComplyforceApiClient\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$orderUuid = new \DevOwl\ComplyforceApiClient\Model\null(); //  | 
+$vendorUuid = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Vendor UUID. User must be assigned to this vendor.
+$cursor = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Cursor for pagination. Omit for first page.
+$limit = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Max number of orders per page (default and max: 100).
+$dateFrom = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Filter orders created on or after the start of this calendar day (YYYY-MM-DD), interpreted in UTC.
+$dateTo = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Filter orders created on or before the end of this calendar day (YYYY-MM-DD), interpreted in UTC.
+$billingId = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Filter by vendor billing ID (numeric primary key).
+$status = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Filter by order status.
+$brandUuid = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Filter by vendor brand UUID.
+$channelUuid = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Filter by vendor brand channel UUID.
 
 try {
-    $result = $apiInstance->orderProgressGet($orderUuid);
+    $result = $apiInstance->ordersGet($vendorUuid, $cursor, $limit, $dateFrom, $dateTo, $billingId, $status, $brandUuid, $channelUuid);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling OrderApi->orderProgressGet: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling OrderApi->ordersGet: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -150,15 +163,23 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **orderUuid** | [****](../Model/.md)|  |
+ **vendorUuid** | [****](../Model/.md)| Vendor UUID. User must be assigned to this vendor. |
+ **cursor** | [****](../Model/.md)| Cursor for pagination. Omit for first page. | [optional]
+ **limit** | [****](../Model/.md)| Max number of orders per page (default and max: 100). | [optional]
+ **dateFrom** | [****](../Model/.md)| Filter orders created on or after the start of this calendar day (YYYY-MM-DD), interpreted in UTC. | [optional]
+ **dateTo** | [****](../Model/.md)| Filter orders created on or before the end of this calendar day (YYYY-MM-DD), interpreted in UTC. | [optional]
+ **billingId** | [****](../Model/.md)| Filter by vendor billing ID (numeric primary key). | [optional]
+ **status** | [****](../Model/.md)| Filter by order status. | [optional]
+ **brandUuid** | [****](../Model/.md)| Filter by vendor brand UUID. | [optional]
+ **channelUuid** | [****](../Model/.md)| Filter by vendor brand channel UUID. | [optional]
 
 ### Return type
 
-[**\DevOwl\ComplyforceApiClient\Model\OrderProgressResponse**](../Model/OrderProgressResponse.md)
+[**\DevOwl\ComplyforceApiClient\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
-No authorization required
+[jwt](../../README.md#jwt)
 
 ### HTTP request headers
 

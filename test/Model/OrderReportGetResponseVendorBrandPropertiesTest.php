@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderGetResponseTest
+ * OrderReportGetResponseVendorBrandPropertiesTest
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ namespace DevOwl\ComplyforceApiClient;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OrderGetResponseTest Class Doc Comment
+ * OrderReportGetResponseVendorBrandPropertiesTest Class Doc Comment
  *
  * @category    Class
- * @description Get order entity
+ * @description OrderReportGetResponseVendorBrandProperties
  * @package     DevOwl\ComplyforceApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class OrderGetResponseTest extends TestCase
+class OrderReportGetResponseVendorBrandPropertiesTest extends TestCase
 {
 
     /**
@@ -71,16 +71,9 @@ class OrderGetResponseTest extends TestCase
     }
 
     /**
-     * Test "OrderGetResponse"
+     * Test "OrderReportGetResponseVendorBrandProperties"
      */
-    public function testOrderGetResponse()
-    {
-    }
-
-    /**
-     * Test attribute "uuid"
-     */
-    public function testPropertyUuid()
+    public function testOrderReportGetResponseVendorBrandProperties()
     {
     }
 
@@ -92,86 +85,72 @@ class OrderGetResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "scanType"
+     * Test attribute "language"
      */
-    public function testPropertyScanType()
+    public function testPropertyLanguage()
     {
     }
 
     /**
-     * Test attribute "scanFeaturesRequested"
+     * Test attribute "brandName"
      */
-    public function testPropertyScanFeaturesRequested()
+    public function testPropertyBrandName()
     {
     }
 
     /**
-     * Test attribute "scanDomain"
+     * Test attribute "colorPrimary"
      */
-    public function testPropertyScanDomain()
+    public function testPropertyColorPrimary()
     {
     }
 
     /**
-     * Test attribute "scanUrlsRequested"
+     * Test attribute "whiteLabel"
      */
-    public function testPropertyScanUrlsRequested()
+    public function testPropertyWhiteLabel()
     {
     }
 
     /**
-     * Test attribute "scanUrlsLimit"
+     * Test attribute "realCookieBannerAds"
      */
-    public function testPropertyScanUrlsLimit()
+    public function testPropertyRealCookieBannerAds()
     {
     }
 
     /**
-     * Test attribute "scanPriority"
+     * Test attribute "legalNoticeUrl"
      */
-    public function testPropertyScanPriority()
+    public function testPropertyLegalNoticeUrl()
     {
     }
 
     /**
-     * Test attribute "scanFeaturesExecuted"
+     * Test attribute "legalPrivacyPolicyUrl"
      */
-    public function testPropertyScanFeaturesExecuted()
+    public function testPropertyLegalPrivacyPolicyUrl()
     {
     }
 
     /**
-     * Test attribute "scanUrlsExecuted"
+     * Test attribute "legalDisclaimerLegalAdviceOverwrite"
      */
-    public function testPropertyScanUrlsExecuted()
+    public function testPropertyLegalDisclaimerLegalAdviceOverwrite()
     {
     }
 
     /**
-     * Test attribute "status"
+     * Test attribute "translations"
      */
-    public function testPropertyStatus()
+    public function testPropertyTranslations()
     {
     }
 
     /**
-     * Test attribute "reportAvailability"
+     * Test attribute "revision"
      */
-    public function testPropertyReportAvailability()
-    {
-    }
-
-    /**
-     * Test attribute "reportDeletionReason"
-     */
-    public function testPropertyReportDeletionReason()
-    {
-    }
-
-    /**
-     * Test attribute "reportAvailableUntil"
-     */
-    public function testPropertyReportAvailableUntil()
+    public function testPropertyRevision()
     {
     }
 
@@ -179,34 +158,6 @@ class OrderGetResponseTest extends TestCase
      * Test attribute "createdAt"
      */
     public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "vendorBrand"
-     */
-    public function testPropertyVendorBrand()
-    {
-    }
-
-    /**
-     * Test attribute "vendorBrandChannel"
-     */
-    public function testPropertyVendorBrandChannel()
-    {
-    }
-
-    /**
-     * Test attribute "statusUpdates"
-     */
-    public function testPropertyStatusUpdates()
-    {
-    }
-
-    /**
-     * Test attribute "report"
-     */
-    public function testPropertyReport()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportGetResponseVendorBrand
+ * CursorPaginationResponseMetadata
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportGetResponseVendorBrand Class Doc Comment
+ * CursorPaginationResponseMetadata Class Doc Comment
  *
  * @category Class
+ * @description Cursor-based pagination metadata for list responses.
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
+class CursorPaginationResponseMetadata implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportGetResponse_vendorBrand';
+    protected static $swaggerModelName = 'CursorPaginationResponseMetadata';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +57,9 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'uuid' => '',
-        'domain' => '',
-        'logo' => '\DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo',
-        'properties' => '\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties'
+        'cursor' => '',
+        'nextCursor' => '',
+        'dataCount' => ''
     ];
 
     /**
@@ -68,10 +68,9 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'uuid' => 'uuid',
-        'domain' => null,
-        'logo' => null,
-        'properties' => null
+        'cursor' => null,
+        'nextCursor' => null,
+        'dataCount' => null
     ];
 
     /**
@@ -101,10 +100,9 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid',
-        'domain' => 'domain',
-        'logo' => 'logo',
-        'properties' => 'properties'
+        'cursor' => 'cursor',
+        'nextCursor' => 'nextCursor',
+        'dataCount' => 'dataCount'
     ];
 
     /**
@@ -113,10 +111,9 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid',
-        'domain' => 'setDomain',
-        'logo' => 'setLogo',
-        'properties' => 'setProperties'
+        'cursor' => 'setCursor',
+        'nextCursor' => 'setNextCursor',
+        'dataCount' => 'setDataCount'
     ];
 
     /**
@@ -125,10 +122,9 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid',
-        'domain' => 'getDomain',
-        'logo' => 'getLogo',
-        'properties' => 'getProperties'
+        'cursor' => 'getCursor',
+        'nextCursor' => 'getNextCursor',
+        'dataCount' => 'getDataCount'
     ];
 
     /**
@@ -189,10 +185,9 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
-        $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
-        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
+        $this->container['cursor'] = isset($data['cursor']) ? $data['cursor'] : null;
+        $this->container['nextCursor'] = isset($data['nextCursor']) ? $data['nextCursor'] : null;
+        $this->container['dataCount'] = isset($data['dataCount']) ? $data['dataCount'] : null;
     }
 
     /**
@@ -204,14 +199,8 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['uuid'] === null) {
-            $invalidProperties[] = "'uuid' can't be null";
-        }
-        if ($this->container['logo'] === null) {
-            $invalidProperties[] = "'logo' can't be null";
-        }
-        if ($this->container['properties'] === null) {
-            $invalidProperties[] = "'properties' can't be null";
+        if ($this->container['dataCount'] === null) {
+            $invalidProperties[] = "'dataCount' can't be null";
         }
         return $invalidProperties;
     }
@@ -229,97 +218,73 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets uuid
+     * Gets cursor
      *
      * @return 
      */
-    public function getUuid()
+    public function getCursor()
     {
-        return $this->container['uuid'];
+        return $this->container['cursor'];
     }
 
     /**
-     * Sets uuid
+     * Sets cursor
      *
-     * @param  $uuid uuid
+     * @param  $cursor Cursor used for this page (echoed back).
      *
      * @return $this
      */
-    public function setUuid($uuid)
+    public function setCursor($cursor)
     {
-        $this->container['uuid'] = $uuid;
+        $this->container['cursor'] = $cursor;
 
         return $this;
     }
 
     /**
-     * Gets domain
+     * Gets nextCursor
      *
      * @return 
      */
-    public function getDomain()
+    public function getNextCursor()
     {
-        return $this->container['domain'];
+        return $this->container['nextCursor'];
     }
 
     /**
-     * Sets domain
+     * Sets nextCursor
      *
-     * @param  $domain domain
+     * @param  $nextCursor Cursor for the next page. Omit when there is no next page.
      *
      * @return $this
      */
-    public function setDomain($domain)
+    public function setNextCursor($nextCursor)
     {
-        $this->container['domain'] = $domain;
+        $this->container['nextCursor'] = $nextCursor;
 
         return $this;
     }
 
     /**
-     * Gets logo
+     * Gets dataCount
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo
+     * @return 
      */
-    public function getLogo()
+    public function getDataCount()
     {
-        return $this->container['logo'];
+        return $this->container['dataCount'];
     }
 
     /**
-     * Sets logo
+     * Sets dataCount
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo $logo logo
+     * @param  $dataCount Number of items in this response.
      *
      * @return $this
      */
-    public function setLogo($logo)
+    public function setDataCount($dataCount)
     {
-        $this->container['logo'] = $logo;
-
-        return $this;
-    }
-
-    /**
-     * Gets properties
-     *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties
-     */
-    public function getProperties()
-    {
-        return $this->container['properties'];
-    }
-
-    /**
-     * Sets properties
-     *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties $properties properties
-     *
-     * @return $this
-     */
-    public function setProperties($properties)
-    {
-        $this->container['properties'] = $properties;
+        $this->container['dataCount'] = $dataCount;
 
         return $this;
     }

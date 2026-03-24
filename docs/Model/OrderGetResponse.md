@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | [****](.md) |  | 
+**id** | [****](.md) |  | [optional] 
 **scanType** | [****](.md) |  | 
 **scanFeaturesRequested** | [****](.md) |  | 
 **scanDomain** | [****](.md) |  | 

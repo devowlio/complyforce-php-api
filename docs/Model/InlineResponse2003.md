@@ -1,10 +1,9 @@
-# InlineResponse2002
+# InlineResponse2003
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [****](.md) |  | 
-**responseMetadata** | [**\DevOwl\ComplyforceApiClient\Model\CursorPaginationResponseMetadata**](CursorPaginationResponseMetadata.md) |  | 
+**vendorName** | [****](.md) | The name (alias) of the vendor associated with the API key | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

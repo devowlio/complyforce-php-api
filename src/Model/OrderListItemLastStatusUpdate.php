@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportGetResponseVendorBrand
+ * OrderListItemLastStatusUpdate
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportGetResponseVendorBrand Class Doc Comment
+ * OrderListItemLastStatusUpdate Class Doc Comment
  *
  * @category Class
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
+class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportGetResponse_vendorBrand';
+    protected static $swaggerModelName = 'OrderListItem_lastStatusUpdate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,13 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'id' => '',
         'uuid' => '',
-        'domain' => '',
-        'logo' => '\DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo',
-        'properties' => '\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties'
+        'status' => '',
+        'errorType' => '',
+        'progressInPercent' => '',
+        'updatedAt' => '',
+        'createdAt' => ''
     ];
 
     /**
@@ -68,10 +71,13 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'id' => null,
         'uuid' => 'uuid',
-        'domain' => null,
-        'logo' => null,
-        'properties' => null
+        'status' => null,
+        'errorType' => null,
+        'progressInPercent' => null,
+        'updatedAt' => 'date-time',
+        'createdAt' => 'date-time'
     ];
 
     /**
@@ -101,10 +107,13 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'uuid' => 'uuid',
-        'domain' => 'domain',
-        'logo' => 'logo',
-        'properties' => 'properties'
+        'status' => 'status',
+        'errorType' => 'errorType',
+        'progressInPercent' => 'progressInPercent',
+        'updatedAt' => 'updatedAt',
+        'createdAt' => 'createdAt'
     ];
 
     /**
@@ -113,10 +122,13 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'uuid' => 'setUuid',
-        'domain' => 'setDomain',
-        'logo' => 'setLogo',
-        'properties' => 'setProperties'
+        'status' => 'setStatus',
+        'errorType' => 'setErrorType',
+        'progressInPercent' => 'setProgressInPercent',
+        'updatedAt' => 'setUpdatedAt',
+        'createdAt' => 'setCreatedAt'
     ];
 
     /**
@@ -125,10 +137,13 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'uuid' => 'getUuid',
-        'domain' => 'getDomain',
-        'logo' => 'getLogo',
-        'properties' => 'getProperties'
+        'status' => 'getStatus',
+        'errorType' => 'getErrorType',
+        'progressInPercent' => 'getProgressInPercent',
+        'updatedAt' => 'getUpdatedAt',
+        'createdAt' => 'getCreatedAt'
     ];
 
     /**
@@ -189,10 +204,13 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
-        $this->container['domain'] = isset($data['domain']) ? $data['domain'] : null;
-        $this->container['logo'] = isset($data['logo']) ? $data['logo'] : null;
-        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['errorType'] = isset($data['errorType']) ? $data['errorType'] : null;
+        $this->container['progressInPercent'] = isset($data['progressInPercent']) ? $data['progressInPercent'] : null;
+        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
+        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
     }
 
     /**
@@ -204,14 +222,17 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['uuid'] === null) {
             $invalidProperties[] = "'uuid' can't be null";
         }
-        if ($this->container['logo'] === null) {
-            $invalidProperties[] = "'logo' can't be null";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['properties'] === null) {
-            $invalidProperties[] = "'properties' can't be null";
+        if ($this->container['progressInPercent'] === null) {
+            $invalidProperties[] = "'progressInPercent' can't be null";
         }
         return $invalidProperties;
     }
@@ -227,6 +248,30 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return 
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param  $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets uuid
@@ -253,73 +298,121 @@ class OrderReportGetResponseVendorBrand implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets domain
+     * Gets status
      *
      * @return 
      */
-    public function getDomain()
+    public function getStatus()
     {
-        return $this->container['domain'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets domain
+     * Sets status
      *
-     * @param  $domain domain
+     * @param  $status status
      *
      * @return $this
      */
-    public function setDomain($domain)
+    public function setStatus($status)
     {
-        $this->container['domain'] = $domain;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets logo
+     * Gets errorType
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo
+     * @return 
      */
-    public function getLogo()
+    public function getErrorType()
     {
-        return $this->container['logo'];
+        return $this->container['errorType'];
     }
 
     /**
-     * Sets logo
+     * Sets errorType
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandLogo $logo logo
+     * @param  $errorType errorType
      *
      * @return $this
      */
-    public function setLogo($logo)
+    public function setErrorType($errorType)
     {
-        $this->container['logo'] = $logo;
+        $this->container['errorType'] = $errorType;
 
         return $this;
     }
 
     /**
-     * Gets properties
+     * Gets progressInPercent
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties
+     * @return 
      */
-    public function getProperties()
+    public function getProgressInPercent()
     {
-        return $this->container['properties'];
+        return $this->container['progressInPercent'];
     }
 
     /**
-     * Sets properties
+     * Sets progressInPercent
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrandProperties $properties properties
+     * @param  $progressInPercent progressInPercent
      *
      * @return $this
      */
-    public function setProperties($properties)
+    public function setProgressInPercent($progressInPercent)
     {
-        $this->container['properties'] = $properties;
+        $this->container['progressInPercent'] = $progressInPercent;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param  $updatedAt updatedAt
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->container['updatedAt'] = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return 
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param  $createdAt createdAt
+     *
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->container['createdAt'] = $createdAt;
 
         return $this;
     }

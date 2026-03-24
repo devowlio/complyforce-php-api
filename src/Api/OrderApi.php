@@ -630,37 +630,53 @@ class OrderApi
     }
 
     /**
-     * Operation orderProgressGet
+     * Operation ordersGet
      *
-     * Get order progress
+     * Get orders overview
      *
-     * @param   $orderUuid orderUuid (required)
+     * @param   $vendorUuid Vendor UUID. User must be assigned to this vendor. (required)
+     * @param   $cursor Cursor for pagination. Omit for first page. (optional)
+     * @param   $limit Max number of orders per page (default and max: 100). (optional)
+     * @param   $dateFrom Filter orders created on or after the start of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $dateTo Filter orders created on or before the end of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $billingId Filter by vendor billing ID (numeric primary key). (optional)
+     * @param   $status Filter by order status. (optional)
+     * @param   $brandUuid Filter by vendor brand UUID. (optional)
+     * @param   $channelUuid Filter by vendor brand channel UUID. (optional)
      *
      * @throws \DevOwl\ComplyforceApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderProgressResponse
+     * @return \DevOwl\ComplyforceApiClient\Model\InlineResponse2002
      */
-    public function orderProgressGet($orderUuid)
+    public function ordersGet($vendorUuid, $cursor = null, $limit = null, $dateFrom = null, $dateTo = null, $billingId = null, $status = null, $brandUuid = null, $channelUuid = null)
     {
-        list($response) = $this->orderProgressGetWithHttpInfo($orderUuid);
+        list($response) = $this->ordersGetWithHttpInfo($vendorUuid, $cursor, $limit, $dateFrom, $dateTo, $billingId, $status, $brandUuid, $channelUuid);
         return $response;
     }
 
     /**
-     * Operation orderProgressGetWithHttpInfo
+     * Operation ordersGetWithHttpInfo
      *
-     * Get order progress
+     * Get orders overview
      *
-     * @param   $orderUuid (required)
+     * @param   $vendorUuid Vendor UUID. User must be assigned to this vendor. (required)
+     * @param   $cursor Cursor for pagination. Omit for first page. (optional)
+     * @param   $limit Max number of orders per page (default and max: 100). (optional)
+     * @param   $dateFrom Filter orders created on or after the start of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $dateTo Filter orders created on or before the end of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $billingId Filter by vendor billing ID (numeric primary key). (optional)
+     * @param   $status Filter by order status. (optional)
+     * @param   $brandUuid Filter by vendor brand UUID. (optional)
+     * @param   $channelUuid Filter by vendor brand channel UUID. (optional)
      *
      * @throws \DevOwl\ComplyforceApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \DevOwl\ComplyforceApiClient\Model\OrderProgressResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \DevOwl\ComplyforceApiClient\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
-    public function orderProgressGetWithHttpInfo($orderUuid)
+    public function ordersGetWithHttpInfo($vendorUuid, $cursor = null, $limit = null, $dateFrom = null, $dateTo = null, $billingId = null, $status = null, $brandUuid = null, $channelUuid = null)
     {
-        $returnType = '\DevOwl\ComplyforceApiClient\Model\OrderProgressResponse';
-        $request = $this->orderProgressGetRequest($orderUuid);
+        $returnType = '\DevOwl\ComplyforceApiClient\Model\InlineResponse2002';
+        $request = $this->ordersGetRequest($vendorUuid, $cursor, $limit, $dateFrom, $dateTo, $billingId, $status, $brandUuid, $channelUuid);
 
         try {
             $options = $this->createHttpClientOption();
@@ -711,7 +727,7 @@ class OrderApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\DevOwl\ComplyforceApiClient\Model\OrderProgressResponse',
+                        '\DevOwl\ComplyforceApiClient\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -722,18 +738,26 @@ class OrderApi
     }
 
     /**
-     * Operation orderProgressGetAsync
+     * Operation ordersGetAsync
      *
-     * Get order progress
+     * Get orders overview
      *
-     * @param   $orderUuid (required)
+     * @param   $vendorUuid Vendor UUID. User must be assigned to this vendor. (required)
+     * @param   $cursor Cursor for pagination. Omit for first page. (optional)
+     * @param   $limit Max number of orders per page (default and max: 100). (optional)
+     * @param   $dateFrom Filter orders created on or after the start of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $dateTo Filter orders created on or before the end of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $billingId Filter by vendor billing ID (numeric primary key). (optional)
+     * @param   $status Filter by order status. (optional)
+     * @param   $brandUuid Filter by vendor brand UUID. (optional)
+     * @param   $channelUuid Filter by vendor brand channel UUID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function orderProgressGetAsync($orderUuid)
+    public function ordersGetAsync($vendorUuid, $cursor = null, $limit = null, $dateFrom = null, $dateTo = null, $billingId = null, $status = null, $brandUuid = null, $channelUuid = null)
     {
-        return $this->orderProgressGetAsyncWithHttpInfo($orderUuid)
+        return $this->ordersGetAsyncWithHttpInfo($vendorUuid, $cursor, $limit, $dateFrom, $dateTo, $billingId, $status, $brandUuid, $channelUuid)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -742,19 +766,27 @@ class OrderApi
     }
 
     /**
-     * Operation orderProgressGetAsyncWithHttpInfo
+     * Operation ordersGetAsyncWithHttpInfo
      *
-     * Get order progress
+     * Get orders overview
      *
-     * @param   $orderUuid (required)
+     * @param   $vendorUuid Vendor UUID. User must be assigned to this vendor. (required)
+     * @param   $cursor Cursor for pagination. Omit for first page. (optional)
+     * @param   $limit Max number of orders per page (default and max: 100). (optional)
+     * @param   $dateFrom Filter orders created on or after the start of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $dateTo Filter orders created on or before the end of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $billingId Filter by vendor billing ID (numeric primary key). (optional)
+     * @param   $status Filter by order status. (optional)
+     * @param   $brandUuid Filter by vendor brand UUID. (optional)
+     * @param   $channelUuid Filter by vendor brand channel UUID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function orderProgressGetAsyncWithHttpInfo($orderUuid)
+    public function ordersGetAsyncWithHttpInfo($vendorUuid, $cursor = null, $limit = null, $dateFrom = null, $dateTo = null, $billingId = null, $status = null, $brandUuid = null, $channelUuid = null)
     {
-        $returnType = '\DevOwl\ComplyforceApiClient\Model\OrderProgressResponse';
-        $request = $this->orderProgressGetRequest($orderUuid);
+        $returnType = '\DevOwl\ComplyforceApiClient\Model\InlineResponse2002';
+        $request = $this->ordersGetRequest($vendorUuid, $cursor, $limit, $dateFrom, $dateTo, $billingId, $status, $brandUuid, $channelUuid);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -794,23 +826,31 @@ class OrderApi
     }
 
     /**
-     * Create request for operation 'orderProgressGet'
+     * Create request for operation 'ordersGet'
      *
-     * @param   $orderUuid (required)
+     * @param   $vendorUuid Vendor UUID. User must be assigned to this vendor. (required)
+     * @param   $cursor Cursor for pagination. Omit for first page. (optional)
+     * @param   $limit Max number of orders per page (default and max: 100). (optional)
+     * @param   $dateFrom Filter orders created on or after the start of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $dateTo Filter orders created on or before the end of this calendar day (YYYY-MM-DD), interpreted in UTC. (optional)
+     * @param   $billingId Filter by vendor billing ID (numeric primary key). (optional)
+     * @param   $status Filter by order status. (optional)
+     * @param   $brandUuid Filter by vendor brand UUID. (optional)
+     * @param   $channelUuid Filter by vendor brand channel UUID. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function orderProgressGetRequest($orderUuid)
+    protected function ordersGetRequest($vendorUuid, $cursor = null, $limit = null, $dateFrom = null, $dateTo = null, $billingId = null, $status = null, $brandUuid = null, $channelUuid = null)
     {
-        // verify the required parameter 'orderUuid' is set
-        if ($orderUuid === null || (is_array($orderUuid) && count($orderUuid) === 0)) {
+        // verify the required parameter 'vendorUuid' is set
+        if ($vendorUuid === null || (is_array($vendorUuid) && count($vendorUuid) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $orderUuid when calling orderProgressGet'
+                'Missing the required parameter $vendorUuid when calling ordersGet'
             );
         }
 
-        $resourcePath = '/order/progress';
+        $resourcePath = '/orders';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -818,8 +858,40 @@ class OrderApi
         $multipart = false;
 
         // query params
-        if ($orderUuid !== null) {
-            $queryParams['orderUuid'] = ObjectSerializer::toQueryValue($orderUuid, 'uuid');
+        if ($vendorUuid !== null) {
+            $queryParams['vendorUuid'] = ObjectSerializer::toQueryValue($vendorUuid, 'uuid');
+        }
+        // query params
+        if ($cursor !== null) {
+            $queryParams['cursor'] = ObjectSerializer::toQueryValue($cursor, null);
+        }
+        // query params
+        if ($limit !== null) {
+            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit, null);
+        }
+        // query params
+        if ($dateFrom !== null) {
+            $queryParams['dateFrom'] = ObjectSerializer::toQueryValue($dateFrom, null);
+        }
+        // query params
+        if ($dateTo !== null) {
+            $queryParams['dateTo'] = ObjectSerializer::toQueryValue($dateTo, null);
+        }
+        // query params
+        if ($billingId !== null) {
+            $queryParams['billingId'] = ObjectSerializer::toQueryValue($billingId, null);
+        }
+        // query params
+        if ($status !== null) {
+            $queryParams['status'] = ObjectSerializer::toQueryValue($status, null);
+        }
+        // query params
+        if ($brandUuid !== null) {
+            $queryParams['brandUuid'] = ObjectSerializer::toQueryValue($brandUuid, 'uuid');
+        }
+        // query params
+        if ($channelUuid !== null) {
+            $queryParams['channelUuid'] = ObjectSerializer::toQueryValue($channelUuid, 'uuid');
         }
 
 
@@ -866,6 +938,11 @@ class OrderApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

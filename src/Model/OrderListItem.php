@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderGetResponse
+ * OrderListItem
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderGetResponse Class Doc Comment
+ * OrderListItem Class Doc Comment
  *
  * @category Class
- * @description Get order entity
+ * @description Order summary for list view
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderGetResponse implements ModelInterface, ArrayAccess
+class OrderListItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderGetResponse';
+    protected static $swaggerModelName = 'OrderListItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,22 +60,18 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'uuid' => '',
         'id' => '',
         'scanType' => '',
-        'scanFeaturesRequested' => '',
         'scanDomain' => '',
-        'scanUrlsRequested' => '',
-        'scanUrlsLimit' => '',
-        'scanPriority' => '',
-        'scanFeaturesExecuted' => '',
-        'scanUrlsExecuted' => '',
+        'scanUrlsRequestedCount' => '',
+        'reportScanUrlsExecutedCount' => '',
+        'report' => '\DevOwl\ComplyforceApiClient\Model\OrderGetResponseReport',
         'status' => '',
-        'reportAvailability' => '',
-        'reportDeletionReason' => '',
-        'reportAvailableUntil' => '',
+        'errorType' => '',
         'createdAt' => '',
-        'vendorBrand' => '\DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrand',
-        'vendorBrandChannel' => '\DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandChannel',
-        'statusUpdates' => '',
-        'report' => '\DevOwl\ComplyforceApiClient\Model\OrderGetResponseReport'
+        'lastStatusUpdate' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemLastStatusUpdate',
+        'reportAvailability' => '',
+        'reportAvailableUntil' => '',
+        'vendorBrand' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand',
+        'vendorBrandChannel' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand'
     ];
 
     /**
@@ -87,22 +83,18 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'id' => null,
         'scanType' => null,
-        'scanFeaturesRequested' => null,
         'scanDomain' => null,
-        'scanUrlsRequested' => null,
-        'scanUrlsLimit' => null,
-        'scanPriority' => null,
-        'scanFeaturesExecuted' => null,
-        'scanUrlsExecuted' => null,
+        'scanUrlsRequestedCount' => null,
+        'reportScanUrlsExecutedCount' => null,
+        'report' => null,
         'status' => null,
-        'reportAvailability' => null,
-        'reportDeletionReason' => null,
-        'reportAvailableUntil' => 'date-time',
+        'errorType' => null,
         'createdAt' => 'date-time',
+        'lastStatusUpdate' => null,
+        'reportAvailability' => null,
+        'reportAvailableUntil' => 'date-time',
         'vendorBrand' => null,
-        'vendorBrandChannel' => null,
-        'statusUpdates' => null,
-        'report' => null
+        'vendorBrandChannel' => null
     ];
 
     /**
@@ -135,22 +127,18 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'id' => 'id',
         'scanType' => 'scanType',
-        'scanFeaturesRequested' => 'scanFeaturesRequested',
         'scanDomain' => 'scanDomain',
-        'scanUrlsRequested' => 'scanUrlsRequested',
-        'scanUrlsLimit' => 'scanUrlsLimit',
-        'scanPriority' => 'scanPriority',
-        'scanFeaturesExecuted' => 'scanFeaturesExecuted',
-        'scanUrlsExecuted' => 'scanUrlsExecuted',
+        'scanUrlsRequestedCount' => 'scanUrlsRequestedCount',
+        'reportScanUrlsExecutedCount' => 'reportScanUrlsExecutedCount',
+        'report' => 'report',
         'status' => 'status',
-        'reportAvailability' => 'reportAvailability',
-        'reportDeletionReason' => 'reportDeletionReason',
-        'reportAvailableUntil' => 'reportAvailableUntil',
+        'errorType' => 'errorType',
         'createdAt' => 'createdAt',
+        'lastStatusUpdate' => 'lastStatusUpdate',
+        'reportAvailability' => 'reportAvailability',
+        'reportAvailableUntil' => 'reportAvailableUntil',
         'vendorBrand' => 'vendorBrand',
-        'vendorBrandChannel' => 'vendorBrandChannel',
-        'statusUpdates' => 'statusUpdates',
-        'report' => 'report'
+        'vendorBrandChannel' => 'vendorBrandChannel'
     ];
 
     /**
@@ -162,22 +150,18 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'setUuid',
         'id' => 'setId',
         'scanType' => 'setScanType',
-        'scanFeaturesRequested' => 'setScanFeaturesRequested',
         'scanDomain' => 'setScanDomain',
-        'scanUrlsRequested' => 'setScanUrlsRequested',
-        'scanUrlsLimit' => 'setScanUrlsLimit',
-        'scanPriority' => 'setScanPriority',
-        'scanFeaturesExecuted' => 'setScanFeaturesExecuted',
-        'scanUrlsExecuted' => 'setScanUrlsExecuted',
+        'scanUrlsRequestedCount' => 'setScanUrlsRequestedCount',
+        'reportScanUrlsExecutedCount' => 'setReportScanUrlsExecutedCount',
+        'report' => 'setReport',
         'status' => 'setStatus',
-        'reportAvailability' => 'setReportAvailability',
-        'reportDeletionReason' => 'setReportDeletionReason',
-        'reportAvailableUntil' => 'setReportAvailableUntil',
+        'errorType' => 'setErrorType',
         'createdAt' => 'setCreatedAt',
+        'lastStatusUpdate' => 'setLastStatusUpdate',
+        'reportAvailability' => 'setReportAvailability',
+        'reportAvailableUntil' => 'setReportAvailableUntil',
         'vendorBrand' => 'setVendorBrand',
-        'vendorBrandChannel' => 'setVendorBrandChannel',
-        'statusUpdates' => 'setStatusUpdates',
-        'report' => 'setReport'
+        'vendorBrandChannel' => 'setVendorBrandChannel'
     ];
 
     /**
@@ -189,22 +173,18 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'getUuid',
         'id' => 'getId',
         'scanType' => 'getScanType',
-        'scanFeaturesRequested' => 'getScanFeaturesRequested',
         'scanDomain' => 'getScanDomain',
-        'scanUrlsRequested' => 'getScanUrlsRequested',
-        'scanUrlsLimit' => 'getScanUrlsLimit',
-        'scanPriority' => 'getScanPriority',
-        'scanFeaturesExecuted' => 'getScanFeaturesExecuted',
-        'scanUrlsExecuted' => 'getScanUrlsExecuted',
+        'scanUrlsRequestedCount' => 'getScanUrlsRequestedCount',
+        'reportScanUrlsExecutedCount' => 'getReportScanUrlsExecutedCount',
+        'report' => 'getReport',
         'status' => 'getStatus',
-        'reportAvailability' => 'getReportAvailability',
-        'reportDeletionReason' => 'getReportDeletionReason',
-        'reportAvailableUntil' => 'getReportAvailableUntil',
+        'errorType' => 'getErrorType',
         'createdAt' => 'getCreatedAt',
+        'lastStatusUpdate' => 'getLastStatusUpdate',
+        'reportAvailability' => 'getReportAvailability',
+        'reportAvailableUntil' => 'getReportAvailableUntil',
         'vendorBrand' => 'getVendorBrand',
-        'vendorBrandChannel' => 'getVendorBrandChannel',
-        'statusUpdates' => 'getStatusUpdates',
-        'report' => 'getReport'
+        'vendorBrandChannel' => 'getVendorBrandChannel'
     ];
 
     /**
@@ -268,22 +248,18 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['scanType'] = isset($data['scanType']) ? $data['scanType'] : null;
-        $this->container['scanFeaturesRequested'] = isset($data['scanFeaturesRequested']) ? $data['scanFeaturesRequested'] : null;
         $this->container['scanDomain'] = isset($data['scanDomain']) ? $data['scanDomain'] : null;
-        $this->container['scanUrlsRequested'] = isset($data['scanUrlsRequested']) ? $data['scanUrlsRequested'] : null;
-        $this->container['scanUrlsLimit'] = isset($data['scanUrlsLimit']) ? $data['scanUrlsLimit'] : null;
-        $this->container['scanPriority'] = isset($data['scanPriority']) ? $data['scanPriority'] : null;
-        $this->container['scanFeaturesExecuted'] = isset($data['scanFeaturesExecuted']) ? $data['scanFeaturesExecuted'] : null;
-        $this->container['scanUrlsExecuted'] = isset($data['scanUrlsExecuted']) ? $data['scanUrlsExecuted'] : null;
+        $this->container['scanUrlsRequestedCount'] = isset($data['scanUrlsRequestedCount']) ? $data['scanUrlsRequestedCount'] : null;
+        $this->container['reportScanUrlsExecutedCount'] = isset($data['reportScanUrlsExecutedCount']) ? $data['reportScanUrlsExecutedCount'] : null;
+        $this->container['report'] = isset($data['report']) ? $data['report'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['reportAvailability'] = isset($data['reportAvailability']) ? $data['reportAvailability'] : null;
-        $this->container['reportDeletionReason'] = isset($data['reportDeletionReason']) ? $data['reportDeletionReason'] : null;
-        $this->container['reportAvailableUntil'] = isset($data['reportAvailableUntil']) ? $data['reportAvailableUntil'] : null;
+        $this->container['errorType'] = isset($data['errorType']) ? $data['errorType'] : null;
         $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['lastStatusUpdate'] = isset($data['lastStatusUpdate']) ? $data['lastStatusUpdate'] : null;
+        $this->container['reportAvailability'] = isset($data['reportAvailability']) ? $data['reportAvailability'] : null;
+        $this->container['reportAvailableUntil'] = isset($data['reportAvailableUntil']) ? $data['reportAvailableUntil'] : null;
         $this->container['vendorBrand'] = isset($data['vendorBrand']) ? $data['vendorBrand'] : null;
         $this->container['vendorBrandChannel'] = isset($data['vendorBrandChannel']) ? $data['vendorBrandChannel'] : null;
-        $this->container['statusUpdates'] = isset($data['statusUpdates']) ? $data['statusUpdates'] : null;
-        $this->container['report'] = isset($data['report']) ? $data['report'] : null;
     }
 
     /**
@@ -298,23 +274,26 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         if ($this->container['uuid'] === null) {
             $invalidProperties[] = "'uuid' can't be null";
         }
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         if ($this->container['scanType'] === null) {
             $invalidProperties[] = "'scanType' can't be null";
-        }
-        if ($this->container['scanFeaturesRequested'] === null) {
-            $invalidProperties[] = "'scanFeaturesRequested' can't be null";
         }
         if ($this->container['scanDomain'] === null) {
             $invalidProperties[] = "'scanDomain' can't be null";
         }
-        if ($this->container['scanUrlsRequested'] === null) {
-            $invalidProperties[] = "'scanUrlsRequested' can't be null";
+        if ($this->container['scanUrlsRequestedCount'] === null) {
+            $invalidProperties[] = "'scanUrlsRequestedCount' can't be null";
         }
-        if ($this->container['scanPriority'] === null) {
-            $invalidProperties[] = "'scanPriority' can't be null";
+        if ($this->container['reportScanUrlsExecutedCount'] === null) {
+            $invalidProperties[] = "'reportScanUrlsExecutedCount' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['createdAt'] === null) {
+            $invalidProperties[] = "'createdAt' can't be null";
         }
         if ($this->container['reportAvailability'] === null) {
             $invalidProperties[] = "'reportAvailability' can't be null";
@@ -324,9 +303,6 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         }
         if ($this->container['vendorBrandChannel'] === null) {
             $invalidProperties[] = "'vendorBrandChannel' can't be null";
-        }
-        if ($this->container['statusUpdates'] === null) {
-            $invalidProperties[] = "'statusUpdates' can't be null";
         }
         return $invalidProperties;
     }
@@ -416,30 +392,6 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets scanFeaturesRequested
-     *
-     * @return 
-     */
-    public function getScanFeaturesRequested()
-    {
-        return $this->container['scanFeaturesRequested'];
-    }
-
-    /**
-     * Sets scanFeaturesRequested
-     *
-     * @param  $scanFeaturesRequested scanFeaturesRequested
-     *
-     * @return $this
-     */
-    public function setScanFeaturesRequested($scanFeaturesRequested)
-    {
-        $this->container['scanFeaturesRequested'] = $scanFeaturesRequested;
-
-        return $this;
-    }
-
-    /**
      * Gets scanDomain
      *
      * @return 
@@ -464,121 +416,73 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets scanUrlsRequested
+     * Gets scanUrlsRequestedCount
      *
      * @return 
      */
-    public function getScanUrlsRequested()
+    public function getScanUrlsRequestedCount()
     {
-        return $this->container['scanUrlsRequested'];
+        return $this->container['scanUrlsRequestedCount'];
     }
 
     /**
-     * Sets scanUrlsRequested
+     * Sets scanUrlsRequestedCount
      *
-     * @param  $scanUrlsRequested Array of URLs to scan. Duplicate URLs are automatically removed when multiple URLs are provided.
+     * @param  $scanUrlsRequestedCount scanUrlsRequestedCount
      *
      * @return $this
      */
-    public function setScanUrlsRequested($scanUrlsRequested)
+    public function setScanUrlsRequestedCount($scanUrlsRequestedCount)
     {
-        $this->container['scanUrlsRequested'] = $scanUrlsRequested;
+        $this->container['scanUrlsRequestedCount'] = $scanUrlsRequestedCount;
 
         return $this;
     }
 
     /**
-     * Gets scanUrlsLimit
+     * Gets reportScanUrlsExecutedCount
      *
      * @return 
      */
-    public function getScanUrlsLimit()
+    public function getReportScanUrlsExecutedCount()
     {
-        return $this->container['scanUrlsLimit'];
+        return $this->container['reportScanUrlsExecutedCount'];
     }
 
     /**
-     * Sets scanUrlsLimit
+     * Sets reportScanUrlsExecutedCount
      *
-     * @param  $scanUrlsLimit Maximum number of URLs/pages to scan for all-pages scans (default: 500, max: 10000).
+     * @param  $reportScanUrlsExecutedCount reportScanUrlsExecutedCount
      *
      * @return $this
      */
-    public function setScanUrlsLimit($scanUrlsLimit)
+    public function setReportScanUrlsExecutedCount($reportScanUrlsExecutedCount)
     {
-        $this->container['scanUrlsLimit'] = $scanUrlsLimit;
+        $this->container['reportScanUrlsExecutedCount'] = $reportScanUrlsExecutedCount;
 
         return $this;
     }
 
     /**
-     * Gets scanPriority
+     * Gets report
      *
-     * @return 
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderGetResponseReport
      */
-    public function getScanPriority()
+    public function getReport()
     {
-        return $this->container['scanPriority'];
+        return $this->container['report'];
     }
 
     /**
-     * Sets scanPriority
+     * Sets report
      *
-     * @param  $scanPriority scanPriority
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderGetResponseReport $report report
      *
      * @return $this
      */
-    public function setScanPriority($scanPriority)
+    public function setReport($report)
     {
-        $this->container['scanPriority'] = $scanPriority;
-
-        return $this;
-    }
-
-    /**
-     * Gets scanFeaturesExecuted
-     *
-     * @return 
-     */
-    public function getScanFeaturesExecuted()
-    {
-        return $this->container['scanFeaturesExecuted'];
-    }
-
-    /**
-     * Sets scanFeaturesExecuted
-     *
-     * @param  $scanFeaturesExecuted scanFeaturesExecuted
-     *
-     * @return $this
-     */
-    public function setScanFeaturesExecuted($scanFeaturesExecuted)
-    {
-        $this->container['scanFeaturesExecuted'] = $scanFeaturesExecuted;
-
-        return $this;
-    }
-
-    /**
-     * Gets scanUrlsExecuted
-     *
-     * @return 
-     */
-    public function getScanUrlsExecuted()
-    {
-        return $this->container['scanUrlsExecuted'];
-    }
-
-    /**
-     * Sets scanUrlsExecuted
-     *
-     * @param  $scanUrlsExecuted scanUrlsExecuted
-     *
-     * @return $this
-     */
-    public function setScanUrlsExecuted($scanUrlsExecuted)
-    {
-        $this->container['scanUrlsExecuted'] = $scanUrlsExecuted;
+        $this->container['report'] = $report;
 
         return $this;
     }
@@ -608,73 +512,25 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets reportAvailability
+     * Gets errorType
      *
      * @return 
      */
-    public function getReportAvailability()
+    public function getErrorType()
     {
-        return $this->container['reportAvailability'];
+        return $this->container['errorType'];
     }
 
     /**
-     * Sets reportAvailability
+     * Sets errorType
      *
-     * @param  $reportAvailability reportAvailability
+     * @param  $errorType errorType
      *
      * @return $this
      */
-    public function setReportAvailability($reportAvailability)
+    public function setErrorType($errorType)
     {
-        $this->container['reportAvailability'] = $reportAvailability;
-
-        return $this;
-    }
-
-    /**
-     * Gets reportDeletionReason
-     *
-     * @return 
-     */
-    public function getReportDeletionReason()
-    {
-        return $this->container['reportDeletionReason'];
-    }
-
-    /**
-     * Sets reportDeletionReason
-     *
-     * @param  $reportDeletionReason reportDeletionReason
-     *
-     * @return $this
-     */
-    public function setReportDeletionReason($reportDeletionReason)
-    {
-        $this->container['reportDeletionReason'] = $reportDeletionReason;
-
-        return $this;
-    }
-
-    /**
-     * Gets reportAvailableUntil
-     *
-     * @return 
-     */
-    public function getReportAvailableUntil()
-    {
-        return $this->container['reportAvailableUntil'];
-    }
-
-    /**
-     * Sets reportAvailableUntil
-     *
-     * @param  $reportAvailableUntil reportAvailableUntil
-     *
-     * @return $this
-     */
-    public function setReportAvailableUntil($reportAvailableUntil)
-    {
-        $this->container['reportAvailableUntil'] = $reportAvailableUntil;
+        $this->container['errorType'] = $errorType;
 
         return $this;
     }
@@ -704,9 +560,81 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets lastStatusUpdate
+     *
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderListItemLastStatusUpdate
+     */
+    public function getLastStatusUpdate()
+    {
+        return $this->container['lastStatusUpdate'];
+    }
+
+    /**
+     * Sets lastStatusUpdate
+     *
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderListItemLastStatusUpdate $lastStatusUpdate lastStatusUpdate
+     *
+     * @return $this
+     */
+    public function setLastStatusUpdate($lastStatusUpdate)
+    {
+        $this->container['lastStatusUpdate'] = $lastStatusUpdate;
+
+        return $this;
+    }
+
+    /**
+     * Gets reportAvailability
+     *
+     * @return 
+     */
+    public function getReportAvailability()
+    {
+        return $this->container['reportAvailability'];
+    }
+
+    /**
+     * Sets reportAvailability
+     *
+     * @param  $reportAvailability reportAvailability
+     *
+     * @return $this
+     */
+    public function setReportAvailability($reportAvailability)
+    {
+        $this->container['reportAvailability'] = $reportAvailability;
+
+        return $this;
+    }
+
+    /**
+     * Gets reportAvailableUntil
+     *
+     * @return 
+     */
+    public function getReportAvailableUntil()
+    {
+        return $this->container['reportAvailableUntil'];
+    }
+
+    /**
+     * Sets reportAvailableUntil
+     *
+     * @param  $reportAvailableUntil reportAvailableUntil
+     *
+     * @return $this
+     */
+    public function setReportAvailableUntil($reportAvailableUntil)
+    {
+        $this->container['reportAvailableUntil'] = $reportAvailableUntil;
+
+        return $this;
+    }
+
+    /**
      * Gets vendorBrand
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrand
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand
      */
     public function getVendorBrand()
     {
@@ -716,7 +644,7 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     /**
      * Sets vendorBrand
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrand $vendorBrand vendorBrand
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand $vendorBrand vendorBrand
      *
      * @return $this
      */
@@ -730,7 +658,7 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     /**
      * Gets vendorBrandChannel
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandChannel
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand
      */
     public function getVendorBrandChannel()
     {
@@ -740,61 +668,13 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     /**
      * Sets vendorBrandChannel
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderGetResponseVendorBrandChannel $vendorBrandChannel vendorBrandChannel
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand $vendorBrandChannel vendorBrandChannel
      *
      * @return $this
      */
     public function setVendorBrandChannel($vendorBrandChannel)
     {
         $this->container['vendorBrandChannel'] = $vendorBrandChannel;
-
-        return $this;
-    }
-
-    /**
-     * Gets statusUpdates
-     *
-     * @return 
-     */
-    public function getStatusUpdates()
-    {
-        return $this->container['statusUpdates'];
-    }
-
-    /**
-     * Sets statusUpdates
-     *
-     * @param  $statusUpdates statusUpdates
-     *
-     * @return $this
-     */
-    public function setStatusUpdates($statusUpdates)
-    {
-        $this->container['statusUpdates'] = $statusUpdates;
-
-        return $this;
-    }
-
-    /**
-     * Gets report
-     *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderGetResponseReport
-     */
-    public function getReport()
-    {
-        return $this->container['report'];
-    }
-
-    /**
-     * Sets report
-     *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderGetResponseReport $report report
-     *
-     * @return $this
-     */
-    public function setReport($report)
-    {
-        $this->container['report'] = $report;
 
         return $this;
     }
