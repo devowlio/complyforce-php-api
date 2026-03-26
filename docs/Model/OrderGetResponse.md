@@ -4,10 +4,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | [****](.md) |  | 
+**id** | [****](.md) |  | [optional] 
 **scanType** | [****](.md) |  | 
 **scanFeaturesRequested** | [****](.md) |  | 
 **scanDomain** | [****](.md) |  | 
 **scanUrlsRequested** | [****](.md) | Array of URLs to scan. Duplicate URLs are automatically removed when multiple URLs are provided. | 
+**scanUrlsLimit** | [****](.md) | Maximum number of URLs/pages to scan for all-pages scans (default: 500, max: 10000). | [optional] 
 **scanPriority** | [****](.md) |  | 
 **scanFeaturesExecuted** | [****](.md) |  | [optional] 
 **scanUrlsExecuted** | [****](.md) |  | [optional] 
