@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportGetResponseLatestStatusUpdate
+ * OrderProgressResponseError
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportGetResponseLatestStatusUpdate Class Doc Comment
+ * OrderProgressResponseError Class Doc Comment
  *
  * @category Class
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayAccess
+class OrderProgressResponseError implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportGetResponse_latestStatusUpdate';
+    protected static $swaggerModelName = 'OrderProgressResponse_error';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,8 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'status' => '',
-        'errorType' => '',
-        'updatedAt' => '',
-        'createdAt' => ''
+        'type' => '',
+        'message' => ''
     ];
 
     /**
@@ -68,10 +66,8 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'status' => null,
-        'errorType' => null,
-        'updatedAt' => 'date-time',
-        'createdAt' => 'date-time'
+        'type' => null,
+        'message' => null
     ];
 
     /**
@@ -101,10 +97,8 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'errorType' => 'errorType',
-        'updatedAt' => 'updatedAt',
-        'createdAt' => 'createdAt'
+        'type' => 'type',
+        'message' => 'message'
     ];
 
     /**
@@ -113,10 +107,8 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'errorType' => 'setErrorType',
-        'updatedAt' => 'setUpdatedAt',
-        'createdAt' => 'setCreatedAt'
+        'type' => 'setType',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -125,10 +117,8 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'errorType' => 'getErrorType',
-        'updatedAt' => 'getUpdatedAt',
-        'createdAt' => 'getCreatedAt'
+        'type' => 'getType',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -189,10 +179,8 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['errorType'] = isset($data['errorType']) ? $data['errorType'] : null;
-        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
-        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -204,9 +192,6 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -223,97 +208,49 @@ class OrderReportGetResponseLatestStatusUpdate implements ModelInterface, ArrayA
 
 
     /**
-     * Gets status
+     * Gets type
      *
      * @return 
      */
-    public function getStatus()
+    public function getType()
     {
-        return $this->container['status'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets status
+     * Sets type
      *
-     * @param  $status status
+     * @param  $type type
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setType($type)
     {
-        $this->container['status'] = $status;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets errorType
+     * Gets message
      *
      * @return 
      */
-    public function getErrorType()
+    public function getMessage()
     {
-        return $this->container['errorType'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets errorType
+     * Sets message
      *
-     * @param  $errorType errorType
+     * @param  $message message
      *
      * @return $this
      */
-    public function setErrorType($errorType)
+    public function setMessage($message)
     {
-        $this->container['errorType'] = $errorType;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param  $updatedAt updatedAt
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->container['updatedAt'] = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets createdAt
-     *
-     * @return 
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['createdAt'];
-    }
-
-    /**
-     * Sets createdAt
-     *
-     * @param  $createdAt createdAt
-     *
-     * @return $this
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->container['createdAt'] = $createdAt;
+        $this->container['message'] = $message;
 
         return $this;
     }

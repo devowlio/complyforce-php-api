@@ -58,7 +58,12 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'orderUuid' => '',
-        'progressInPercent' => ''
+        'status' => '',
+        'sitemapDiscoveredUrls' => '',
+        'latestProcessedUrl' => '',
+        'processedUrls' => '',
+        'totalUrls' => '',
+        'error' => '\DevOwl\ComplyforceApiClient\Model\OrderProgressResponseError'
     ];
 
     /**
@@ -68,7 +73,12 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'orderUuid' => 'uuid',
-        'progressInPercent' => null
+        'status' => null,
+        'sitemapDiscoveredUrls' => null,
+        'latestProcessedUrl' => 'uri',
+        'processedUrls' => null,
+        'totalUrls' => null,
+        'error' => null
     ];
 
     /**
@@ -99,7 +109,12 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'orderUuid' => 'orderUuid',
-        'progressInPercent' => 'progressInPercent'
+        'status' => 'status',
+        'sitemapDiscoveredUrls' => 'sitemapDiscoveredUrls',
+        'latestProcessedUrl' => 'latestProcessedUrl',
+        'processedUrls' => 'processedUrls',
+        'totalUrls' => 'totalUrls',
+        'error' => 'error'
     ];
 
     /**
@@ -109,7 +124,12 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'orderUuid' => 'setOrderUuid',
-        'progressInPercent' => 'setProgressInPercent'
+        'status' => 'setStatus',
+        'sitemapDiscoveredUrls' => 'setSitemapDiscoveredUrls',
+        'latestProcessedUrl' => 'setLatestProcessedUrl',
+        'processedUrls' => 'setProcessedUrls',
+        'totalUrls' => 'setTotalUrls',
+        'error' => 'setError'
     ];
 
     /**
@@ -119,7 +139,12 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'orderUuid' => 'getOrderUuid',
-        'progressInPercent' => 'getProgressInPercent'
+        'status' => 'getStatus',
+        'sitemapDiscoveredUrls' => 'getSitemapDiscoveredUrls',
+        'latestProcessedUrl' => 'getLatestProcessedUrl',
+        'processedUrls' => 'getProcessedUrls',
+        'totalUrls' => 'getTotalUrls',
+        'error' => 'getError'
     ];
 
     /**
@@ -181,7 +206,12 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['orderUuid'] = isset($data['orderUuid']) ? $data['orderUuid'] : null;
-        $this->container['progressInPercent'] = isset($data['progressInPercent']) ? $data['progressInPercent'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['sitemapDiscoveredUrls'] = isset($data['sitemapDiscoveredUrls']) ? $data['sitemapDiscoveredUrls'] : null;
+        $this->container['latestProcessedUrl'] = isset($data['latestProcessedUrl']) ? $data['latestProcessedUrl'] : null;
+        $this->container['processedUrls'] = isset($data['processedUrls']) ? $data['processedUrls'] : null;
+        $this->container['totalUrls'] = isset($data['totalUrls']) ? $data['totalUrls'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
     }
 
     /**
@@ -196,8 +226,14 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
         if ($this->container['orderUuid'] === null) {
             $invalidProperties[] = "'orderUuid' can't be null";
         }
-        if ($this->container['progressInPercent'] === null) {
-            $invalidProperties[] = "'progressInPercent' can't be null";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['processedUrls'] === null) {
+            $invalidProperties[] = "'processedUrls' can't be null";
+        }
+        if ($this->container['totalUrls'] === null) {
+            $invalidProperties[] = "'totalUrls' can't be null";
         }
         return $invalidProperties;
     }
@@ -239,25 +275,145 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets progressInPercent
+     * Gets status
      *
      * @return 
      */
-    public function getProgressInPercent()
+    public function getStatus()
     {
-        return $this->container['progressInPercent'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets progressInPercent
+     * Sets status
      *
-     * @param  $progressInPercent progressInPercent
+     * @param  $status status
      *
      * @return $this
      */
-    public function setProgressInPercent($progressInPercent)
+    public function setStatus($status)
     {
-        $this->container['progressInPercent'] = $progressInPercent;
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets sitemapDiscoveredUrls
+     *
+     * @return 
+     */
+    public function getSitemapDiscoveredUrls()
+    {
+        return $this->container['sitemapDiscoveredUrls'];
+    }
+
+    /**
+     * Sets sitemapDiscoveredUrls
+     *
+     * @param  $sitemapDiscoveredUrls sitemapDiscoveredUrls
+     *
+     * @return $this
+     */
+    public function setSitemapDiscoveredUrls($sitemapDiscoveredUrls)
+    {
+        $this->container['sitemapDiscoveredUrls'] = $sitemapDiscoveredUrls;
+
+        return $this;
+    }
+
+    /**
+     * Gets latestProcessedUrl
+     *
+     * @return 
+     */
+    public function getLatestProcessedUrl()
+    {
+        return $this->container['latestProcessedUrl'];
+    }
+
+    /**
+     * Sets latestProcessedUrl
+     *
+     * @param  $latestProcessedUrl latestProcessedUrl
+     *
+     * @return $this
+     */
+    public function setLatestProcessedUrl($latestProcessedUrl)
+    {
+        $this->container['latestProcessedUrl'] = $latestProcessedUrl;
+
+        return $this;
+    }
+
+    /**
+     * Gets processedUrls
+     *
+     * @return 
+     */
+    public function getProcessedUrls()
+    {
+        return $this->container['processedUrls'];
+    }
+
+    /**
+     * Sets processedUrls
+     *
+     * @param  $processedUrls processedUrls
+     *
+     * @return $this
+     */
+    public function setProcessedUrls($processedUrls)
+    {
+        $this->container['processedUrls'] = $processedUrls;
+
+        return $this;
+    }
+
+    /**
+     * Gets totalUrls
+     *
+     * @return 
+     */
+    public function getTotalUrls()
+    {
+        return $this->container['totalUrls'];
+    }
+
+    /**
+     * Sets totalUrls
+     *
+     * @param  $totalUrls totalUrls
+     *
+     * @return $this
+     */
+    public function setTotalUrls($totalUrls)
+    {
+        $this->container['totalUrls'] = $totalUrls;
+
+        return $this;
+    }
+
+    /**
+     * Gets error
+     *
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderProgressResponseError
+     */
+    public function getError()
+    {
+        return $this->container['error'];
+    }
+
+    /**
+     * Sets error
+     *
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderProgressResponseError $error error
+     *
+     * @return $this
+     */
+    public function setError($error)
+    {
+        $this->container['error'] = $error;
 
         return $this;
     }

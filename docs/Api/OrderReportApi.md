@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Get order progress
 
-Progress of the order as a percentage.
+Current order workflow status and URL processing counters.
 
 ### Example
 ```php

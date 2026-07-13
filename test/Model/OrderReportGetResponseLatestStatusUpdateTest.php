@@ -92,13 +92,6 @@ class OrderReportGetResponseLatestStatusUpdateTest extends TestCase
     }
 
     /**
-     * Test attribute "progressInPercent"
-     */
-    public function testPropertyProgressInPercent()
-    {
-    }
-
-    /**
      * Test attribute "updatedAt"
      */
     public function testPropertyUpdatedAt()
