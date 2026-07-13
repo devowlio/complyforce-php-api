@@ -5,7 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [****](.md) |  | 
 **errorType** | [****](.md) |  | [optional] 
-**progressInPercent** | [****](.md) |  | 
 **updatedAt** | [****](.md) |  | [optional] 
 **createdAt** | [****](.md) |  | [optional] 
 

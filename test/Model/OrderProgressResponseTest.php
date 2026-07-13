@@ -85,9 +85,44 @@ class OrderProgressResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "progressInPercent"
+     * Test attribute "status"
      */
-    public function testPropertyProgressInPercent()
+    public function testPropertyStatus()
+    {
+    }
+
+    /**
+     * Test attribute "sitemapDiscoveredUrls"
+     */
+    public function testPropertySitemapDiscoveredUrls()
+    {
+    }
+
+    /**
+     * Test attribute "latestProcessedUrl"
+     */
+    public function testPropertyLatestProcessedUrl()
+    {
+    }
+
+    /**
+     * Test attribute "processedUrls"
+     */
+    public function testPropertyProcessedUrls()
+    {
+    }
+
+    /**
+     * Test attribute "totalUrls"
+     */
+    public function testPropertyTotalUrls()
+    {
+    }
+
+    /**
+     * Test attribute "error"
+     */
+    public function testPropertyError()
     {
     }
 }

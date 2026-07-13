@@ -60,7 +60,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => '',
         'status' => '',
         'errorType' => '',
-        'progressInPercent' => '',
         'updatedAt' => '',
         'createdAt' => ''
     ];
@@ -75,7 +74,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'status' => null,
         'errorType' => null,
-        'progressInPercent' => null,
         'updatedAt' => 'date-time',
         'createdAt' => 'date-time'
     ];
@@ -111,7 +109,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'status' => 'status',
         'errorType' => 'errorType',
-        'progressInPercent' => 'progressInPercent',
         'updatedAt' => 'updatedAt',
         'createdAt' => 'createdAt'
     ];
@@ -126,7 +123,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'setUuid',
         'status' => 'setStatus',
         'errorType' => 'setErrorType',
-        'progressInPercent' => 'setProgressInPercent',
         'updatedAt' => 'setUpdatedAt',
         'createdAt' => 'setCreatedAt'
     ];
@@ -141,7 +137,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'getUuid',
         'status' => 'getStatus',
         'errorType' => 'getErrorType',
-        'progressInPercent' => 'getProgressInPercent',
         'updatedAt' => 'getUpdatedAt',
         'createdAt' => 'getCreatedAt'
     ];
@@ -208,7 +203,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['errorType'] = isset($data['errorType']) ? $data['errorType'] : null;
-        $this->container['progressInPercent'] = isset($data['progressInPercent']) ? $data['progressInPercent'] : null;
         $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
         $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
     }
@@ -230,9 +224,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
-        }
-        if ($this->container['progressInPercent'] === null) {
-            $invalidProperties[] = "'progressInPercent' can't be null";
         }
         return $invalidProperties;
     }
@@ -341,30 +332,6 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
     public function setErrorType($errorType)
     {
         $this->container['errorType'] = $errorType;
-
-        return $this;
-    }
-
-    /**
-     * Gets progressInPercent
-     *
-     * @return 
-     */
-    public function getProgressInPercent()
-    {
-        return $this->container['progressInPercent'];
-    }
-
-    /**
-     * Sets progressInPercent
-     *
-     * @param  $progressInPercent progressInPercent
-     *
-     * @return $this
-     */
-    public function setProgressInPercent($progressInPercent)
-    {
-        $this->container['progressInPercent'] = $progressInPercent;
 
         return $this;
     }

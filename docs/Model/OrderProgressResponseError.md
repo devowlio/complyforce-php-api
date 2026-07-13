@@ -1,14 +1,10 @@
-# OrderListItemLastStatusUpdate
+# OrderProgressResponseError
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [****](.md) |  | 
-**uuid** | [****](.md) |  | 
-**status** | [****](.md) |  | 
-**errorType** | [****](.md) |  | [optional] 
-**updatedAt** | [****](.md) |  | [optional] 
-**createdAt** | [****](.md) |  | [optional] 
+**type** | [****](.md) |  | [optional] 
+**message** | [****](.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
