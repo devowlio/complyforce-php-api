@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequestOrder
+ * OrderCancelRequest
  *
  * PHP version 5
  *
@@ -32,14 +32,15 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportDeleteRequestOrder Class Doc Comment
+ * OrderCancelRequest Class Doc Comment
  *
  * @category Class
+ * @description Cancel order request with order UUID and optional cancel reason.
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
+class OrderCancelRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +49,7 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportDeleteRequest_order';
+    protected static $swaggerModelName = 'OrderCancelRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +57,8 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'uuid' => ''
+        'order' => '\DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder',
+        'cancelReason' => ''
     ];
 
     /**
@@ -65,7 +67,8 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'uuid' => 'uuid'
+        'order' => null,
+        'cancelReason' => null
     ];
 
     /**
@@ -95,7 +98,8 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid'
+        'order' => 'order',
+        'cancelReason' => 'cancelReason'
     ];
 
     /**
@@ -104,7 +108,8 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid'
+        'order' => 'setOrder',
+        'cancelReason' => 'setCancelReason'
     ];
 
     /**
@@ -113,7 +118,8 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid'
+        'order' => 'getOrder',
+        'cancelReason' => 'getCancelReason'
     ];
 
     /**
@@ -174,7 +180,8 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['cancelReason'] = isset($data['cancelReason']) ? $data['cancelReason'] : null;
     }
 
     /**
@@ -186,8 +193,8 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['uuid'] === null) {
-            $invalidProperties[] = "'uuid' can't be null";
+        if ($this->container['order'] === null) {
+            $invalidProperties[] = "'order' can't be null";
         }
         return $invalidProperties;
     }
@@ -205,25 +212,49 @@ class OrderReportDeleteRequestOrder implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets uuid
+     * Gets order
      *
-     * @return 
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder
      */
-    public function getUuid()
+    public function getOrder()
     {
-        return $this->container['uuid'];
+        return $this->container['order'];
     }
 
     /**
-     * Sets uuid
+     * Sets order
      *
-     * @param  $uuid uuid
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder $order order
      *
      * @return $this
      */
-    public function setUuid($uuid)
+    public function setOrder($order)
     {
-        $this->container['uuid'] = $uuid;
+        $this->container['order'] = $order;
+
+        return $this;
+    }
+
+    /**
+     * Gets cancelReason
+     *
+     * @return 
+     */
+    public function getCancelReason()
+    {
+        return $this->container['cancelReason'];
+    }
+
+    /**
+     * Sets cancelReason
+     *
+     * @param  $cancelReason Optional reason for cancellation (vendor dashboard may require a selection).
+     *
+     * @return $this
+     */
+    public function setCancelReason($cancelReason)
+    {
+        $this->container['cancelReason'] = $cancelReason;
 
         return $this;
     }

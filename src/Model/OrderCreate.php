@@ -60,6 +60,7 @@ class OrderCreate implements ModelInterface, ArrayAccess
         'scanType' => '',
         'scanUrlsRequested' => '',
         'scanUrlsLimit' => '',
+        'traceEnabled' => '',
         'channel' => '\DevOwl\ComplyforceApiClient\Model\OrderCreateChannel'
     ];
 
@@ -72,6 +73,7 @@ class OrderCreate implements ModelInterface, ArrayAccess
         'scanType' => null,
         'scanUrlsRequested' => null,
         'scanUrlsLimit' => null,
+        'traceEnabled' => null,
         'channel' => null
     ];
 
@@ -105,6 +107,7 @@ class OrderCreate implements ModelInterface, ArrayAccess
         'scanType' => 'scanType',
         'scanUrlsRequested' => 'scanUrlsRequested',
         'scanUrlsLimit' => 'scanUrlsLimit',
+        'traceEnabled' => 'traceEnabled',
         'channel' => 'channel'
     ];
 
@@ -117,6 +120,7 @@ class OrderCreate implements ModelInterface, ArrayAccess
         'scanType' => 'setScanType',
         'scanUrlsRequested' => 'setScanUrlsRequested',
         'scanUrlsLimit' => 'setScanUrlsLimit',
+        'traceEnabled' => 'setTraceEnabled',
         'channel' => 'setChannel'
     ];
 
@@ -129,6 +133,7 @@ class OrderCreate implements ModelInterface, ArrayAccess
         'scanType' => 'getScanType',
         'scanUrlsRequested' => 'getScanUrlsRequested',
         'scanUrlsLimit' => 'getScanUrlsLimit',
+        'traceEnabled' => 'getTraceEnabled',
         'channel' => 'getChannel'
     ];
 
@@ -193,6 +198,7 @@ class OrderCreate implements ModelInterface, ArrayAccess
         $this->container['scanType'] = isset($data['scanType']) ? $data['scanType'] : null;
         $this->container['scanUrlsRequested'] = isset($data['scanUrlsRequested']) ? $data['scanUrlsRequested'] : null;
         $this->container['scanUrlsLimit'] = isset($data['scanUrlsLimit']) ? $data['scanUrlsLimit'] : null;
+        $this->container['traceEnabled'] = isset($data['traceEnabled']) ? $data['traceEnabled'] : null;
         $this->container['channel'] = isset($data['channel']) ? $data['channel'] : null;
     }
 
@@ -297,6 +303,30 @@ class OrderCreate implements ModelInterface, ArrayAccess
     public function setScanUrlsLimit($scanUrlsLimit)
     {
         $this->container['scanUrlsLimit'] = $scanUrlsLimit;
+
+        return $this;
+    }
+
+    /**
+     * Gets traceEnabled
+     *
+     * @return 
+     */
+    public function getTraceEnabled()
+    {
+        return $this->container['traceEnabled'];
+    }
+
+    /**
+     * Sets traceEnabled
+     *
+     * @param  $traceEnabled When set by an admin user, overrides the API config default for per-order crawler tracing and scan-artefact mirror writes.
+     *
+     * @return $this
+     */
+    public function setTraceEnabled($traceEnabled)
+    {
+        $this->container['traceEnabled'] = $traceEnabled;
 
         return $this;
     }

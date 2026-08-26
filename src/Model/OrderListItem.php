@@ -71,7 +71,9 @@ class OrderListItem implements ModelInterface, ArrayAccess
         'reportAvailability' => '',
         'reportAvailableUntil' => '',
         'vendorBrand' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand',
-        'vendorBrandChannel' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand'
+        'vendorBrandChannel' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand',
+        'createdByUser' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemCreatedByUser',
+        'vendorApiKey' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorApiKey'
     ];
 
     /**
@@ -94,7 +96,9 @@ class OrderListItem implements ModelInterface, ArrayAccess
         'reportAvailability' => null,
         'reportAvailableUntil' => 'date-time',
         'vendorBrand' => null,
-        'vendorBrandChannel' => null
+        'vendorBrandChannel' => null,
+        'createdByUser' => null,
+        'vendorApiKey' => null
     ];
 
     /**
@@ -138,7 +142,9 @@ class OrderListItem implements ModelInterface, ArrayAccess
         'reportAvailability' => 'reportAvailability',
         'reportAvailableUntil' => 'reportAvailableUntil',
         'vendorBrand' => 'vendorBrand',
-        'vendorBrandChannel' => 'vendorBrandChannel'
+        'vendorBrandChannel' => 'vendorBrandChannel',
+        'createdByUser' => 'createdByUser',
+        'vendorApiKey' => 'vendorApiKey'
     ];
 
     /**
@@ -161,7 +167,9 @@ class OrderListItem implements ModelInterface, ArrayAccess
         'reportAvailability' => 'setReportAvailability',
         'reportAvailableUntil' => 'setReportAvailableUntil',
         'vendorBrand' => 'setVendorBrand',
-        'vendorBrandChannel' => 'setVendorBrandChannel'
+        'vendorBrandChannel' => 'setVendorBrandChannel',
+        'createdByUser' => 'setCreatedByUser',
+        'vendorApiKey' => 'setVendorApiKey'
     ];
 
     /**
@@ -184,7 +192,9 @@ class OrderListItem implements ModelInterface, ArrayAccess
         'reportAvailability' => 'getReportAvailability',
         'reportAvailableUntil' => 'getReportAvailableUntil',
         'vendorBrand' => 'getVendorBrand',
-        'vendorBrandChannel' => 'getVendorBrandChannel'
+        'vendorBrandChannel' => 'getVendorBrandChannel',
+        'createdByUser' => 'getCreatedByUser',
+        'vendorApiKey' => 'getVendorApiKey'
     ];
 
     /**
@@ -260,6 +270,8 @@ class OrderListItem implements ModelInterface, ArrayAccess
         $this->container['reportAvailableUntil'] = isset($data['reportAvailableUntil']) ? $data['reportAvailableUntil'] : null;
         $this->container['vendorBrand'] = isset($data['vendorBrand']) ? $data['vendorBrand'] : null;
         $this->container['vendorBrandChannel'] = isset($data['vendorBrandChannel']) ? $data['vendorBrandChannel'] : null;
+        $this->container['createdByUser'] = isset($data['createdByUser']) ? $data['createdByUser'] : null;
+        $this->container['vendorApiKey'] = isset($data['vendorApiKey']) ? $data['vendorApiKey'] : null;
     }
 
     /**
@@ -675,6 +687,54 @@ class OrderListItem implements ModelInterface, ArrayAccess
     public function setVendorBrandChannel($vendorBrandChannel)
     {
         $this->container['vendorBrandChannel'] = $vendorBrandChannel;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdByUser
+     *
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderListItemCreatedByUser
+     */
+    public function getCreatedByUser()
+    {
+        return $this->container['createdByUser'];
+    }
+
+    /**
+     * Sets createdByUser
+     *
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderListItemCreatedByUser $createdByUser createdByUser
+     *
+     * @return $this
+     */
+    public function setCreatedByUser($createdByUser)
+    {
+        $this->container['createdByUser'] = $createdByUser;
+
+        return $this;
+    }
+
+    /**
+     * Gets vendorApiKey
+     *
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorApiKey
+     */
+    public function getVendorApiKey()
+    {
+        return $this->container['vendorApiKey'];
+    }
+
+    /**
+     * Sets vendorApiKey
+     *
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorApiKey $vendorApiKey vendorApiKey
+     *
+     * @return $this
+     */
+    public function setVendorApiKey($vendorApiKey)
+    {
+        $this->container['vendorApiKey'] = $vendorApiKey;
 
         return $this;
     }

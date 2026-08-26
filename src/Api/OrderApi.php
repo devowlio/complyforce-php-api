@@ -87,6 +87,231 @@ class OrderApi
     }
 
     /**
+     * Operation orderCancelPost
+     *
+     * Cancel order
+     *
+     * @param  \DevOwl\ComplyforceApiClient\Model\OrderCancelRequest $body body (required)
+     *
+     * @throws \DevOwl\ComplyforceApiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function orderCancelPost($body)
+    {
+        $this->orderCancelPostWithHttpInfo($body);
+    }
+
+    /**
+     * Operation orderCancelPostWithHttpInfo
+     *
+     * Cancel order
+     *
+     * @param  \DevOwl\ComplyforceApiClient\Model\OrderCancelRequest $body (required)
+     *
+     * @throws \DevOwl\ComplyforceApiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function orderCancelPostWithHttpInfo($body)
+    {
+        $returnType = '';
+        $request = $this->orderCancelPostRequest($body);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation orderCancelPostAsync
+     *
+     * Cancel order
+     *
+     * @param  \DevOwl\ComplyforceApiClient\Model\OrderCancelRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function orderCancelPostAsync($body)
+    {
+        return $this->orderCancelPostAsyncWithHttpInfo($body)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation orderCancelPostAsyncWithHttpInfo
+     *
+     * Cancel order
+     *
+     * @param  \DevOwl\ComplyforceApiClient\Model\OrderCancelRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function orderCancelPostAsyncWithHttpInfo($body)
+    {
+        $returnType = '';
+        $request = $this->orderCancelPostRequest($body);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'orderCancelPost'
+     *
+     * @param  \DevOwl\ComplyforceApiClient\Model\OrderCancelRequest $body (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function orderCancelPostRequest($body)
+    {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling orderCancelPost'
+            );
+        }
+
+        $resourcePath = '/order/cancel';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('x-authentication-super-admin');
+        if ($apiKey !== null) {
+            $headers['x-authentication-super-admin'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation orderGet
      *
      * Get order
@@ -599,14 +824,9 @@ class OrderApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
         if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('x-api-key');
-        if ($apiKey !== null) {
-            $headers['x-api-key'] = $apiKey;
+            $headers['authorization'] = $apiKey;
         }
 
         $defaultHeaders = [];
@@ -623,6 +843,269 @@ class OrderApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation orderorderUuidScanArtefactsGet
+     *
+     * Get scan artefact URLs for an order
+     *
+     * @param   $orderUuid Order UUID to look up. (required)
+     *
+     * @throws \DevOwl\ComplyforceApiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderScanArtefactsGot
+     */
+    public function orderorderUuidScanArtefactsGet($orderUuid)
+    {
+        list($response) = $this->orderorderUuidScanArtefactsGetWithHttpInfo($orderUuid);
+        return $response;
+    }
+
+    /**
+     * Operation orderorderUuidScanArtefactsGetWithHttpInfo
+     *
+     * Get scan artefact URLs for an order
+     *
+     * @param   $orderUuid Order UUID to look up. (required)
+     *
+     * @throws \DevOwl\ComplyforceApiClient\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \DevOwl\ComplyforceApiClient\Model\OrderScanArtefactsGot, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function orderorderUuidScanArtefactsGetWithHttpInfo($orderUuid)
+    {
+        $returnType = '\DevOwl\ComplyforceApiClient\Model\OrderScanArtefactsGot';
+        $request = $this->orderorderUuidScanArtefactsGetRequest($orderUuid);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\DevOwl\ComplyforceApiClient\Model\OrderScanArtefactsGot',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation orderorderUuidScanArtefactsGetAsync
+     *
+     * Get scan artefact URLs for an order
+     *
+     * @param   $orderUuid Order UUID to look up. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function orderorderUuidScanArtefactsGetAsync($orderUuid)
+    {
+        return $this->orderorderUuidScanArtefactsGetAsyncWithHttpInfo($orderUuid)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation orderorderUuidScanArtefactsGetAsyncWithHttpInfo
+     *
+     * Get scan artefact URLs for an order
+     *
+     * @param   $orderUuid Order UUID to look up. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function orderorderUuidScanArtefactsGetAsyncWithHttpInfo($orderUuid)
+    {
+        $returnType = '\DevOwl\ComplyforceApiClient\Model\OrderScanArtefactsGot';
+        $request = $this->orderorderUuidScanArtefactsGetRequest($orderUuid);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'orderorderUuidScanArtefactsGet'
+     *
+     * @param   $orderUuid Order UUID to look up. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function orderorderUuidScanArtefactsGetRequest($orderUuid)
+    {
+        // verify the required parameter 'orderUuid' is set
+        if ($orderUuid === null || (is_array($orderUuid) && count($orderUuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $orderUuid when calling orderorderUuidScanArtefactsGet'
+            );
+        }
+
+        $resourcePath = '/order/:orderUuid/scan-artefacts';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($orderUuid !== null) {
+            $queryParams['orderUuid'] = ObjectSerializer::toQueryValue($orderUuid, 'uuid');
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -60,7 +60,9 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
         'uuid' => '',
         'scanType' => '',
         'scanDomain' => '',
-        'scanUrlsExecuted' => '',
+        'scanUrlsRequestedCount' => '',
+        'scanUrlsProcessedCount' => '',
+        'scanUrlsFailedCount' => '',
         'createdAt' => '',
         'vendorBrand' => '\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrand',
         'report' => '\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseReport',
@@ -76,7 +78,9 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'scanType' => null,
         'scanDomain' => null,
-        'scanUrlsExecuted' => null,
+        'scanUrlsRequestedCount' => null,
+        'scanUrlsProcessedCount' => null,
+        'scanUrlsFailedCount' => null,
         'createdAt' => 'date-time',
         'vendorBrand' => null,
         'report' => null,
@@ -113,7 +117,9 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'scanType' => 'scanType',
         'scanDomain' => 'scanDomain',
-        'scanUrlsExecuted' => 'scanUrlsExecuted',
+        'scanUrlsRequestedCount' => 'scanUrlsRequestedCount',
+        'scanUrlsProcessedCount' => 'scanUrlsProcessedCount',
+        'scanUrlsFailedCount' => 'scanUrlsFailedCount',
         'createdAt' => 'createdAt',
         'vendorBrand' => 'vendorBrand',
         'report' => 'report',
@@ -129,7 +135,9 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'setUuid',
         'scanType' => 'setScanType',
         'scanDomain' => 'setScanDomain',
-        'scanUrlsExecuted' => 'setScanUrlsExecuted',
+        'scanUrlsRequestedCount' => 'setScanUrlsRequestedCount',
+        'scanUrlsProcessedCount' => 'setScanUrlsProcessedCount',
+        'scanUrlsFailedCount' => 'setScanUrlsFailedCount',
         'createdAt' => 'setCreatedAt',
         'vendorBrand' => 'setVendorBrand',
         'report' => 'setReport',
@@ -145,7 +153,9 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
         'uuid' => 'getUuid',
         'scanType' => 'getScanType',
         'scanDomain' => 'getScanDomain',
-        'scanUrlsExecuted' => 'getScanUrlsExecuted',
+        'scanUrlsRequestedCount' => 'getScanUrlsRequestedCount',
+        'scanUrlsProcessedCount' => 'getScanUrlsProcessedCount',
+        'scanUrlsFailedCount' => 'getScanUrlsFailedCount',
         'createdAt' => 'getCreatedAt',
         'vendorBrand' => 'getVendorBrand',
         'report' => 'getReport',
@@ -213,7 +223,9 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['scanType'] = isset($data['scanType']) ? $data['scanType'] : null;
         $this->container['scanDomain'] = isset($data['scanDomain']) ? $data['scanDomain'] : null;
-        $this->container['scanUrlsExecuted'] = isset($data['scanUrlsExecuted']) ? $data['scanUrlsExecuted'] : null;
+        $this->container['scanUrlsRequestedCount'] = isset($data['scanUrlsRequestedCount']) ? $data['scanUrlsRequestedCount'] : null;
+        $this->container['scanUrlsProcessedCount'] = isset($data['scanUrlsProcessedCount']) ? $data['scanUrlsProcessedCount'] : null;
+        $this->container['scanUrlsFailedCount'] = isset($data['scanUrlsFailedCount']) ? $data['scanUrlsFailedCount'] : null;
         $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
         $this->container['vendorBrand'] = isset($data['vendorBrand']) ? $data['vendorBrand'] : null;
         $this->container['report'] = isset($data['report']) ? $data['report'] : null;
@@ -237,6 +249,9 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
         }
         if ($this->container['scanDomain'] === null) {
             $invalidProperties[] = "'scanDomain' can't be null";
+        }
+        if ($this->container['scanUrlsRequestedCount'] === null) {
+            $invalidProperties[] = "'scanUrlsRequestedCount' can't be null";
         }
         if ($this->container['vendorBrand'] === null) {
             $invalidProperties[] = "'vendorBrand' can't be null";
@@ -335,25 +350,73 @@ class OrderReportGetResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets scanUrlsExecuted
+     * Gets scanUrlsRequestedCount
      *
      * @return 
      */
-    public function getScanUrlsExecuted()
+    public function getScanUrlsRequestedCount()
     {
-        return $this->container['scanUrlsExecuted'];
+        return $this->container['scanUrlsRequestedCount'];
     }
 
     /**
-     * Sets scanUrlsExecuted
+     * Sets scanUrlsRequestedCount
      *
-     * @param  $scanUrlsExecuted scanUrlsExecuted
+     * @param  $scanUrlsRequestedCount scanUrlsRequestedCount
      *
      * @return $this
      */
-    public function setScanUrlsExecuted($scanUrlsExecuted)
+    public function setScanUrlsRequestedCount($scanUrlsRequestedCount)
     {
-        $this->container['scanUrlsExecuted'] = $scanUrlsExecuted;
+        $this->container['scanUrlsRequestedCount'] = $scanUrlsRequestedCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets scanUrlsProcessedCount
+     *
+     * @return 
+     */
+    public function getScanUrlsProcessedCount()
+    {
+        return $this->container['scanUrlsProcessedCount'];
+    }
+
+    /**
+     * Sets scanUrlsProcessedCount
+     *
+     * @param  $scanUrlsProcessedCount scanUrlsProcessedCount
+     *
+     * @return $this
+     */
+    public function setScanUrlsProcessedCount($scanUrlsProcessedCount)
+    {
+        $this->container['scanUrlsProcessedCount'] = $scanUrlsProcessedCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets scanUrlsFailedCount
+     *
+     * @return 
+     */
+    public function getScanUrlsFailedCount()
+    {
+        return $this->container['scanUrlsFailedCount'];
+    }
+
+    /**
+     * Sets scanUrlsFailedCount
+     *
+     * @param  $scanUrlsFailedCount scanUrlsFailedCount
+     *
+     * @return $this
+     */
+    public function setScanUrlsFailedCount($scanUrlsFailedCount)
+    {
+        $this->container['scanUrlsFailedCount'] = $scanUrlsFailedCount;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequest
+ * OrderCancelRequestOrder
  *
  * PHP version 5
  *
@@ -32,15 +32,14 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportDeleteRequest Class Doc Comment
+ * OrderCancelRequestOrder Class Doc Comment
  *
  * @category Class
- * @description Order report delete request
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
+class OrderCancelRequestOrder implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportDeleteRequest';
+    protected static $swaggerModelName = 'OrderCancelRequest_order';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +56,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => '\DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder'
+        'uuid' => ''
     ];
 
     /**
@@ -66,7 +65,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null
+        'uuid' => 'uuid'
     ];
 
     /**
@@ -96,7 +95,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order'
+        'uuid' => 'uuid'
     ];
 
     /**
@@ -105,7 +104,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder'
+        'uuid' => 'setUuid'
     ];
 
     /**
@@ -114,7 +113,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder'
+        'uuid' => 'getUuid'
     ];
 
     /**
@@ -175,7 +174,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
     }
 
     /**
@@ -187,8 +186,8 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
+        if ($this->container['uuid'] === null) {
+            $invalidProperties[] = "'uuid' can't be null";
         }
         return $invalidProperties;
     }
@@ -206,25 +205,25 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets order
+     * Gets uuid
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder
+     * @return 
      */
-    public function getOrder()
+    public function getUuid()
     {
-        return $this->container['order'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets order
+     * Sets uuid
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder $order order
+     * @param  $uuid uuid
      *
      * @return $this
      */
-    public function setOrder($order)
+    public function setUuid($uuid)
     {
-        $this->container['order'] = $order;
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }

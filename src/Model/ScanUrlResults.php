@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequest
+ * ScanUrlResults
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportDeleteRequest Class Doc Comment
+ * ScanUrlResults Class Doc Comment
  *
  * @category Class
- * @description Order report delete request
+ * @description Map of scanned page URL to artefact fields. Empty when no artefacts are available or the caller may not read the order.
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
+class ScanUrlResults implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportDeleteRequest';
+    protected static $swaggerModelName = 'ScanUrlResults';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => '\DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder'
     ];
 
     /**
@@ -66,7 +65,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null
     ];
 
     /**
@@ -96,7 +94,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order'
     ];
 
     /**
@@ -105,7 +102,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder'
     ];
 
     /**
@@ -114,7 +110,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder'
     ];
 
     /**
@@ -175,7 +170,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
     }
 
     /**
@@ -187,9 +181,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -204,30 +195,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets order
-     *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder
-     */
-    public function getOrder()
-    {
-        return $this->container['order'];
-    }
-
-    /**
-     * Sets order
-     *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder $order order
-     *
-     * @return $this
-     */
-    public function setOrder($order)
-    {
-        $this->container['order'] = $order;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      *

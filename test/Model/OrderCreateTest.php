@@ -99,6 +99,13 @@ class OrderCreateTest extends TestCase
     }
 
     /**
+     * Test attribute "traceEnabled"
+     */
+    public function testPropertyTraceEnabled()
+    {
+    }
+
+    /**
      * Test attribute "channel"
      */
     public function testPropertyChannel()

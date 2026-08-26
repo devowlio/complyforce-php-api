@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequest
+ * OrderListItemVendorApiKey
  *
  * PHP version 5
  *
@@ -32,15 +32,14 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportDeleteRequest Class Doc Comment
+ * OrderListItemVendorApiKey Class Doc Comment
  *
  * @category Class
- * @description Order report delete request
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
+class OrderListItemVendorApiKey implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportDeleteRequest';
+    protected static $swaggerModelName = 'OrderListItem_vendorApiKey';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +56,9 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => '\DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder'
+        'id' => '',
+        'keyLastDigits' => '',
+        'description' => ''
     ];
 
     /**
@@ -66,7 +67,9 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null
+        'id' => null,
+        'keyLastDigits' => null,
+        'description' => null
     ];
 
     /**
@@ -96,7 +99,9 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order'
+        'id' => 'id',
+        'keyLastDigits' => 'keyLastDigits',
+        'description' => 'description'
     ];
 
     /**
@@ -105,7 +110,9 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder'
+        'id' => 'setId',
+        'keyLastDigits' => 'setKeyLastDigits',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -114,7 +121,9 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder'
+        'id' => 'getId',
+        'keyLastDigits' => 'getKeyLastDigits',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -175,7 +184,9 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['keyLastDigits'] = isset($data['keyLastDigits']) ? $data['keyLastDigits'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
     }
 
     /**
@@ -187,8 +198,11 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['keyLastDigits'] === null) {
+            $invalidProperties[] = "'keyLastDigits' can't be null";
         }
         return $invalidProperties;
     }
@@ -206,25 +220,73 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets order
+     * Gets id
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder
+     * @return 
      */
-    public function getOrder()
+    public function getId()
     {
-        return $this->container['order'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets order
+     * Sets id
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder $order order
+     * @param  $id id
      *
      * @return $this
      */
-    public function setOrder($order)
+    public function setId($id)
     {
-        $this->container['order'] = $order;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyLastDigits
+     *
+     * @return 
+     */
+    public function getKeyLastDigits()
+    {
+        return $this->container['keyLastDigits'];
+    }
+
+    /**
+     * Sets keyLastDigits
+     *
+     * @param  $keyLastDigits keyLastDigits
+     *
+     * @return $this
+     */
+    public function setKeyLastDigits($keyLastDigits)
+    {
+        $this->container['keyLastDigits'] = $keyLastDigits;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return 
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param  $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
 
         return $this;
     }

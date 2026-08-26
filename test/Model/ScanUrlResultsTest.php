@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportGetResponseTest
+ * ScanUrlResultsTest
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ namespace DevOwl\ComplyforceApiClient;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OrderReportGetResponseTest Class Doc Comment
+ * ScanUrlResultsTest Class Doc Comment
  *
  * @category    Class
- * @description Get order report entity
+ * @description Map of scanned page URL to artefact fields. Empty when no artefacts are available or the caller may not read the order.
  * @package     DevOwl\ComplyforceApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportGetResponseTest extends TestCase
+class ScanUrlResultsTest extends TestCase
 {
 
     /**
@@ -71,79 +71,9 @@ class OrderReportGetResponseTest extends TestCase
     }
 
     /**
-     * Test "OrderReportGetResponse"
+     * Test "ScanUrlResults"
      */
-    public function testOrderReportGetResponse()
-    {
-    }
-
-    /**
-     * Test attribute "uuid"
-     */
-    public function testPropertyUuid()
-    {
-    }
-
-    /**
-     * Test attribute "scanType"
-     */
-    public function testPropertyScanType()
-    {
-    }
-
-    /**
-     * Test attribute "scanDomain"
-     */
-    public function testPropertyScanDomain()
-    {
-    }
-
-    /**
-     * Test attribute "scanUrlsRequestedCount"
-     */
-    public function testPropertyScanUrlsRequestedCount()
-    {
-    }
-
-    /**
-     * Test attribute "scanUrlsProcessedCount"
-     */
-    public function testPropertyScanUrlsProcessedCount()
-    {
-    }
-
-    /**
-     * Test attribute "scanUrlsFailedCount"
-     */
-    public function testPropertyScanUrlsFailedCount()
-    {
-    }
-
-    /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "vendorBrand"
-     */
-    public function testPropertyVendorBrand()
-    {
-    }
-
-    /**
-     * Test attribute "report"
-     */
-    public function testPropertyReport()
-    {
-    }
-
-    /**
-     * Test attribute "latestStatusUpdate"
-     */
-    public function testPropertyLatestStatusUpdate()
+    public function testScanUrlResults()
     {
     }
 }

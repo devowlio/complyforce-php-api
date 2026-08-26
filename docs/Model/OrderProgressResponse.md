@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 **orderUuid** | [****](.md) |  | 
 **status** | [****](.md) |  | 
 **sitemapDiscoveredUrls** | [****](.md) |  | [optional] 
-**latestProcessedUrl** | [****](.md) |  | [optional] 
 **processedUrls** | [****](.md) |  | 
 **totalUrls** | [****](.md) |  | 
 **error** | [**\DevOwl\ComplyforceApiClient\Model\OrderProgressResponseError**](OrderProgressResponseError.md) |  | [optional] 

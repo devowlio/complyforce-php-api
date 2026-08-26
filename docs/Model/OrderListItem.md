@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **reportAvailableUntil** | [****](.md) |  | [optional] 
 **vendorBrand** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand**](OrderListItemVendorBrand.md) |  | 
 **vendorBrandChannel** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand**](OrderListItemVendorBrand.md) |  | 
+**createdByUser** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemCreatedByUser**](OrderListItemCreatedByUser.md) |  | [optional] 
+**vendorApiKey** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorApiKey**](OrderListItemVendorApiKey.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

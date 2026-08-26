@@ -99,13 +99,6 @@ class OrderProgressResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "latestProcessedUrl"
-     */
-    public function testPropertyLatestProcessedUrl()
-    {
-    }
-
-    /**
      * Test attribute "processedUrls"
      */
     public function testPropertyProcessedUrls()
