@@ -106,6 +106,13 @@ class OrderListItemLastStatusUpdateTest extends TestCase
     }
 
     /**
+     * Test attribute "log"
+     */
+    public function testPropertyLog()
+    {
+    }
+
+    /**
      * Test attribute "updatedAt"
      */
     public function testPropertyUpdatedAt()

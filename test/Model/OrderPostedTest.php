@@ -106,9 +106,23 @@ class OrderPostedTest extends TestCase
     }
 
     /**
-     * Test attribute "scanUrlsRequested"
+     * Test attribute "scanUrlsRequestedCount"
      */
-    public function testPropertyScanUrlsRequested()
+    public function testPropertyScanUrlsRequestedCount()
+    {
+    }
+
+    /**
+     * Test attribute "scanUrlsProcessedCount"
+     */
+    public function testPropertyScanUrlsProcessedCount()
+    {
+    }
+
+    /**
+     * Test attribute "scanUrlsFailedCount"
+     */
+    public function testPropertyScanUrlsFailedCount()
     {
     }
 

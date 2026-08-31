@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequest
+ * ScanUrlResult
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportDeleteRequest Class Doc Comment
+ * ScanUrlResult Class Doc Comment
  *
  * @category Class
- * @description Order report delete request
+ * @description Scan artefact fields for one scanned page URL.
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
+class ScanUrlResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportDeleteRequest';
+    protected static $swaggerModelName = 'ScanUrlResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,13 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => '\DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder'
+        'beforeConsentAcceptAll' => '',
+        'afterConsentAcceptAll' => '',
+        'trace' => '',
+        'errorName' => '',
+        'errorMessage' => '',
+        'errorStack' => '',
+        'processedAt' => ''
     ];
 
     /**
@@ -66,7 +72,13 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null
+        'beforeConsentAcceptAll' => null,
+        'afterConsentAcceptAll' => null,
+        'trace' => null,
+        'errorName' => null,
+        'errorMessage' => null,
+        'errorStack' => null,
+        'processedAt' => null
     ];
 
     /**
@@ -96,7 +108,13 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order'
+        'beforeConsentAcceptAll' => 'beforeConsentAcceptAll',
+        'afterConsentAcceptAll' => 'afterConsentAcceptAll',
+        'trace' => 'trace',
+        'errorName' => 'errorName',
+        'errorMessage' => 'errorMessage',
+        'errorStack' => 'errorStack',
+        'processedAt' => 'processedAt'
     ];
 
     /**
@@ -105,7 +123,13 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder'
+        'beforeConsentAcceptAll' => 'setBeforeConsentAcceptAll',
+        'afterConsentAcceptAll' => 'setAfterConsentAcceptAll',
+        'trace' => 'setTrace',
+        'errorName' => 'setErrorName',
+        'errorMessage' => 'setErrorMessage',
+        'errorStack' => 'setErrorStack',
+        'processedAt' => 'setProcessedAt'
     ];
 
     /**
@@ -114,7 +138,13 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder'
+        'beforeConsentAcceptAll' => 'getBeforeConsentAcceptAll',
+        'afterConsentAcceptAll' => 'getAfterConsentAcceptAll',
+        'trace' => 'getTrace',
+        'errorName' => 'getErrorName',
+        'errorMessage' => 'getErrorMessage',
+        'errorStack' => 'getErrorStack',
+        'processedAt' => 'getProcessedAt'
     ];
 
     /**
@@ -175,7 +205,13 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['beforeConsentAcceptAll'] = isset($data['beforeConsentAcceptAll']) ? $data['beforeConsentAcceptAll'] : null;
+        $this->container['afterConsentAcceptAll'] = isset($data['afterConsentAcceptAll']) ? $data['afterConsentAcceptAll'] : null;
+        $this->container['trace'] = isset($data['trace']) ? $data['trace'] : null;
+        $this->container['errorName'] = isset($data['errorName']) ? $data['errorName'] : null;
+        $this->container['errorMessage'] = isset($data['errorMessage']) ? $data['errorMessage'] : null;
+        $this->container['errorStack'] = isset($data['errorStack']) ? $data['errorStack'] : null;
+        $this->container['processedAt'] = isset($data['processedAt']) ? $data['processedAt'] : null;
     }
 
     /**
@@ -187,9 +223,6 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -206,25 +239,169 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets order
+     * Gets beforeConsentAcceptAll
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder
+     * @return 
      */
-    public function getOrder()
+    public function getBeforeConsentAcceptAll()
     {
-        return $this->container['order'];
+        return $this->container['beforeConsentAcceptAll'];
     }
 
     /**
-     * Sets order
+     * Sets beforeConsentAcceptAll
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder $order order
+     * @param  $beforeConsentAcceptAll Signed S3 URL for the before-consent (accept-all) capture.
      *
      * @return $this
      */
-    public function setOrder($order)
+    public function setBeforeConsentAcceptAll($beforeConsentAcceptAll)
     {
-        $this->container['order'] = $order;
+        $this->container['beforeConsentAcceptAll'] = $beforeConsentAcceptAll;
+
+        return $this;
+    }
+
+    /**
+     * Gets afterConsentAcceptAll
+     *
+     * @return 
+     */
+    public function getAfterConsentAcceptAll()
+    {
+        return $this->container['afterConsentAcceptAll'];
+    }
+
+    /**
+     * Sets afterConsentAcceptAll
+     *
+     * @param  $afterConsentAcceptAll Signed S3 URL for the after-consent (accept-all) capture.
+     *
+     * @return $this
+     */
+    public function setAfterConsentAcceptAll($afterConsentAcceptAll)
+    {
+        $this->container['afterConsentAcceptAll'] = $afterConsentAcceptAll;
+
+        return $this;
+    }
+
+    /**
+     * Gets trace
+     *
+     * @return 
+     */
+    public function getTrace()
+    {
+        return $this->container['trace'];
+    }
+
+    /**
+     * Sets trace
+     *
+     * @param  $trace Signed S3 URL for the crawl trace artefact.
+     *
+     * @return $this
+     */
+    public function setTrace($trace)
+    {
+        $this->container['trace'] = $trace;
+
+        return $this;
+    }
+
+    /**
+     * Gets errorName
+     *
+     * @return 
+     */
+    public function getErrorName()
+    {
+        return $this->container['errorName'];
+    }
+
+    /**
+     * Sets errorName
+     *
+     * @param  $errorName Error name when the URL scan failed.
+     *
+     * @return $this
+     */
+    public function setErrorName($errorName)
+    {
+        $this->container['errorName'] = $errorName;
+
+        return $this;
+    }
+
+    /**
+     * Gets errorMessage
+     *
+     * @return 
+     */
+    public function getErrorMessage()
+    {
+        return $this->container['errorMessage'];
+    }
+
+    /**
+     * Sets errorMessage
+     *
+     * @param  $errorMessage Error message when the URL scan failed.
+     *
+     * @return $this
+     */
+    public function setErrorMessage($errorMessage)
+    {
+        $this->container['errorMessage'] = $errorMessage;
+
+        return $this;
+    }
+
+    /**
+     * Gets errorStack
+     *
+     * @return 
+     */
+    public function getErrorStack()
+    {
+        return $this->container['errorStack'];
+    }
+
+    /**
+     * Sets errorStack
+     *
+     * @param  $errorStack Error stack when the URL scan failed.
+     *
+     * @return $this
+     */
+    public function setErrorStack($errorStack)
+    {
+        $this->container['errorStack'] = $errorStack;
+
+        return $this;
+    }
+
+    /**
+     * Gets processedAt
+     *
+     * @return 
+     */
+    public function getProcessedAt()
+    {
+        return $this->container['processedAt'];
+    }
+
+    /**
+     * Sets processedAt
+     *
+     * @param  $processedAt ISO timestamp when this URL was processed.
+     *
+     * @return $this
+     */
+    public function setProcessedAt($processedAt)
+    {
+        $this->container['processedAt'] = $processedAt;
 
         return $this;
     }

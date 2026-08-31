@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequest
+ * OrderScanArtefactsGot
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportDeleteRequest Class Doc Comment
+ * OrderScanArtefactsGot Class Doc Comment
  *
  * @category Class
- * @description Order report delete request
+ * @description Scan artefact lookup result for one order
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
+class OrderScanArtefactsGot implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportDeleteRequest';
+    protected static $swaggerModelName = 'OrderScanArtefactsGot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => '\DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder'
+        'artefacts' => '\DevOwl\ComplyforceApiClient\Model\ScanUrlResults'
     ];
 
     /**
@@ -66,7 +66,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null
+        'artefacts' => null
     ];
 
     /**
@@ -96,7 +96,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order'
+        'artefacts' => 'artefacts'
     ];
 
     /**
@@ -105,7 +105,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder'
+        'artefacts' => 'setArtefacts'
     ];
 
     /**
@@ -114,7 +114,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder'
+        'artefacts' => 'getArtefacts'
     ];
 
     /**
@@ -175,7 +175,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['artefacts'] = isset($data['artefacts']) ? $data['artefacts'] : null;
     }
 
     /**
@@ -187,8 +187,8 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
+        if ($this->container['artefacts'] === null) {
+            $invalidProperties[] = "'artefacts' can't be null";
         }
         return $invalidProperties;
     }
@@ -206,25 +206,25 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets order
+     * Gets artefacts
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder
+     * @return \DevOwl\ComplyforceApiClient\Model\ScanUrlResults
      */
-    public function getOrder()
+    public function getArtefacts()
     {
-        return $this->container['order'];
+        return $this->container['artefacts'];
     }
 
     /**
-     * Sets order
+     * Sets artefacts
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder $order order
+     * @param \DevOwl\ComplyforceApiClient\Model\ScanUrlResults $artefacts artefacts
      *
      * @return $this
      */
-    public function setOrder($order)
+    public function setArtefacts($artefacts)
     {
-        $this->container['order'] = $order;
+        $this->container['artefacts'] = $artefacts;
 
         return $this;
     }

@@ -7,7 +7,9 @@ Name | Type | Description | Notes
 **scanType** | [****](.md) |  | 
 **scanFeaturesRequested** | [****](.md) |  | 
 **scanDomain** | [****](.md) |  | 
-**scanUrlsRequested** | [****](.md) | Array of URLs to scan. Duplicate URLs are automatically removed when multiple URLs are provided. | 
+**scanUrlsRequestedCount** | [****](.md) |  | 
+**scanUrlsProcessedCount** | [****](.md) |  | [optional] 
+**scanUrlsFailedCount** | [****](.md) |  | [optional] 
 **scanUrlsLimit** | [****](.md) | Maximum number of URLs/pages to scan for all-pages scans (default: 500, max: 10000). | [optional] 
 **scanPriority** | [****](.md) |  | 
 **status** | [****](.md) |  | 

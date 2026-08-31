@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequestOrderTest
+ * OrderScanArtefactsGotTest
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ namespace DevOwl\ComplyforceApiClient;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OrderReportDeleteRequestOrderTest Class Doc Comment
+ * OrderScanArtefactsGotTest Class Doc Comment
  *
  * @category    Class
- * @description OrderReportDeleteRequestOrder
+ * @description Scan artefact lookup result for one order
  * @package     DevOwl\ComplyforceApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequestOrderTest extends TestCase
+class OrderScanArtefactsGotTest extends TestCase
 {
 
     /**
@@ -71,16 +71,16 @@ class OrderReportDeleteRequestOrderTest extends TestCase
     }
 
     /**
-     * Test "OrderReportDeleteRequestOrder"
+     * Test "OrderScanArtefactsGot"
      */
-    public function testOrderReportDeleteRequestOrder()
+    public function testOrderScanArtefactsGot()
     {
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "artefacts"
      */
-    public function testPropertyUuid()
+    public function testPropertyArtefacts()
     {
     }
 }

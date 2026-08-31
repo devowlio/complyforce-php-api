@@ -113,9 +113,23 @@ class OrderGetResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "scanUrlsRequested"
+     * Test attribute "scanUrlsRequestedCount"
      */
-    public function testPropertyScanUrlsRequested()
+    public function testPropertyScanUrlsRequestedCount()
+    {
+    }
+
+    /**
+     * Test attribute "scanUrlsProcessedCount"
+     */
+    public function testPropertyScanUrlsProcessedCount()
+    {
+    }
+
+    /**
+     * Test attribute "scanUrlsFailedCount"
+     */
+    public function testPropertyScanUrlsFailedCount()
     {
     }
 
@@ -137,13 +151,6 @@ class OrderGetResponseTest extends TestCase
      * Test attribute "scanFeaturesExecuted"
      */
     public function testPropertyScanFeaturesExecuted()
-    {
-    }
-
-    /**
-     * Test attribute "scanUrlsExecuted"
-     */
-    public function testPropertyScanUrlsExecuted()
     {
     }
 

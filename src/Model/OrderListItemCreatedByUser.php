@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderReportDeleteRequest
+ * OrderListItemCreatedByUser
  *
  * PHP version 5
  *
@@ -32,15 +32,14 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderReportDeleteRequest Class Doc Comment
+ * OrderListItemCreatedByUser Class Doc Comment
  *
  * @category Class
- * @description Order report delete request
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
+class OrderListItemCreatedByUser implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderReportDeleteRequest';
+    protected static $swaggerModelName = 'OrderListItem_createdByUser';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +56,10 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'order' => '\DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder'
+        'id' => '',
+        'email' => '',
+        'firstName' => '',
+        'lastName' => ''
     ];
 
     /**
@@ -66,7 +68,10 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'order' => null
+        'id' => null,
+        'email' => 'email',
+        'firstName' => null,
+        'lastName' => null
     ];
 
     /**
@@ -96,7 +101,10 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order' => 'order'
+        'id' => 'id',
+        'email' => 'email',
+        'firstName' => 'firstName',
+        'lastName' => 'lastName'
     ];
 
     /**
@@ -105,7 +113,10 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order' => 'setOrder'
+        'id' => 'setId',
+        'email' => 'setEmail',
+        'firstName' => 'setFirstName',
+        'lastName' => 'setLastName'
     ];
 
     /**
@@ -114,7 +125,10 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order' => 'getOrder'
+        'id' => 'getId',
+        'email' => 'getEmail',
+        'firstName' => 'getFirstName',
+        'lastName' => 'getLastName'
     ];
 
     /**
@@ -175,7 +189,10 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['firstName'] = isset($data['firstName']) ? $data['firstName'] : null;
+        $this->container['lastName'] = isset($data['lastName']) ? $data['lastName'] : null;
     }
 
     /**
@@ -187,8 +204,17 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order'] === null) {
-            $invalidProperties[] = "'order' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['firstName'] === null) {
+            $invalidProperties[] = "'firstName' can't be null";
+        }
+        if ($this->container['lastName'] === null) {
+            $invalidProperties[] = "'lastName' can't be null";
         }
         return $invalidProperties;
     }
@@ -206,25 +232,97 @@ class OrderReportDeleteRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets order
+     * Gets id
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder
+     * @return 
      */
-    public function getOrder()
+    public function getId()
     {
-        return $this->container['order'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets order
+     * Sets id
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderCancelRequestOrder $order order
+     * @param  $id id
      *
      * @return $this
      */
-    public function setOrder($order)
+    public function setId($id)
     {
-        $this->container['order'] = $order;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return 
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param  $email email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets firstName
+     *
+     * @return 
+     */
+    public function getFirstName()
+    {
+        return $this->container['firstName'];
+    }
+
+    /**
+     * Sets firstName
+     *
+     * @param  $firstName firstName
+     *
+     * @return $this
+     */
+    public function setFirstName($firstName)
+    {
+        $this->container['firstName'] = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Gets lastName
+     *
+     * @return 
+     */
+    public function getLastName()
+    {
+        return $this->container['lastName'];
+    }
+
+    /**
+     * Sets lastName
+     *
+     * @param  $lastName lastName
+     *
+     * @return $this
+     */
+    public function setLastName($lastName)
+    {
+        $this->container['lastName'] = $lastName;
 
         return $this;
     }

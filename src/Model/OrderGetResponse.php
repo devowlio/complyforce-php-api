@@ -62,11 +62,12 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'scanType' => '',
         'scanFeaturesRequested' => '',
         'scanDomain' => '',
-        'scanUrlsRequested' => '',
+        'scanUrlsRequestedCount' => '',
+        'scanUrlsProcessedCount' => '',
+        'scanUrlsFailedCount' => '',
         'scanUrlsLimit' => '',
         'scanPriority' => '',
         'scanFeaturesExecuted' => '',
-        'scanUrlsExecuted' => '',
         'status' => '',
         'reportAvailability' => '',
         'reportDeletionReason' => '',
@@ -89,11 +90,12 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'scanType' => null,
         'scanFeaturesRequested' => null,
         'scanDomain' => null,
-        'scanUrlsRequested' => null,
+        'scanUrlsRequestedCount' => null,
+        'scanUrlsProcessedCount' => null,
+        'scanUrlsFailedCount' => null,
         'scanUrlsLimit' => null,
         'scanPriority' => null,
         'scanFeaturesExecuted' => null,
-        'scanUrlsExecuted' => null,
         'status' => null,
         'reportAvailability' => null,
         'reportDeletionReason' => null,
@@ -137,11 +139,12 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'scanType' => 'scanType',
         'scanFeaturesRequested' => 'scanFeaturesRequested',
         'scanDomain' => 'scanDomain',
-        'scanUrlsRequested' => 'scanUrlsRequested',
+        'scanUrlsRequestedCount' => 'scanUrlsRequestedCount',
+        'scanUrlsProcessedCount' => 'scanUrlsProcessedCount',
+        'scanUrlsFailedCount' => 'scanUrlsFailedCount',
         'scanUrlsLimit' => 'scanUrlsLimit',
         'scanPriority' => 'scanPriority',
         'scanFeaturesExecuted' => 'scanFeaturesExecuted',
-        'scanUrlsExecuted' => 'scanUrlsExecuted',
         'status' => 'status',
         'reportAvailability' => 'reportAvailability',
         'reportDeletionReason' => 'reportDeletionReason',
@@ -164,11 +167,12 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'scanType' => 'setScanType',
         'scanFeaturesRequested' => 'setScanFeaturesRequested',
         'scanDomain' => 'setScanDomain',
-        'scanUrlsRequested' => 'setScanUrlsRequested',
+        'scanUrlsRequestedCount' => 'setScanUrlsRequestedCount',
+        'scanUrlsProcessedCount' => 'setScanUrlsProcessedCount',
+        'scanUrlsFailedCount' => 'setScanUrlsFailedCount',
         'scanUrlsLimit' => 'setScanUrlsLimit',
         'scanPriority' => 'setScanPriority',
         'scanFeaturesExecuted' => 'setScanFeaturesExecuted',
-        'scanUrlsExecuted' => 'setScanUrlsExecuted',
         'status' => 'setStatus',
         'reportAvailability' => 'setReportAvailability',
         'reportDeletionReason' => 'setReportDeletionReason',
@@ -191,11 +195,12 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         'scanType' => 'getScanType',
         'scanFeaturesRequested' => 'getScanFeaturesRequested',
         'scanDomain' => 'getScanDomain',
-        'scanUrlsRequested' => 'getScanUrlsRequested',
+        'scanUrlsRequestedCount' => 'getScanUrlsRequestedCount',
+        'scanUrlsProcessedCount' => 'getScanUrlsProcessedCount',
+        'scanUrlsFailedCount' => 'getScanUrlsFailedCount',
         'scanUrlsLimit' => 'getScanUrlsLimit',
         'scanPriority' => 'getScanPriority',
         'scanFeaturesExecuted' => 'getScanFeaturesExecuted',
-        'scanUrlsExecuted' => 'getScanUrlsExecuted',
         'status' => 'getStatus',
         'reportAvailability' => 'getReportAvailability',
         'reportDeletionReason' => 'getReportDeletionReason',
@@ -270,11 +275,12 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         $this->container['scanType'] = isset($data['scanType']) ? $data['scanType'] : null;
         $this->container['scanFeaturesRequested'] = isset($data['scanFeaturesRequested']) ? $data['scanFeaturesRequested'] : null;
         $this->container['scanDomain'] = isset($data['scanDomain']) ? $data['scanDomain'] : null;
-        $this->container['scanUrlsRequested'] = isset($data['scanUrlsRequested']) ? $data['scanUrlsRequested'] : null;
+        $this->container['scanUrlsRequestedCount'] = isset($data['scanUrlsRequestedCount']) ? $data['scanUrlsRequestedCount'] : null;
+        $this->container['scanUrlsProcessedCount'] = isset($data['scanUrlsProcessedCount']) ? $data['scanUrlsProcessedCount'] : null;
+        $this->container['scanUrlsFailedCount'] = isset($data['scanUrlsFailedCount']) ? $data['scanUrlsFailedCount'] : null;
         $this->container['scanUrlsLimit'] = isset($data['scanUrlsLimit']) ? $data['scanUrlsLimit'] : null;
         $this->container['scanPriority'] = isset($data['scanPriority']) ? $data['scanPriority'] : null;
         $this->container['scanFeaturesExecuted'] = isset($data['scanFeaturesExecuted']) ? $data['scanFeaturesExecuted'] : null;
-        $this->container['scanUrlsExecuted'] = isset($data['scanUrlsExecuted']) ? $data['scanUrlsExecuted'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['reportAvailability'] = isset($data['reportAvailability']) ? $data['reportAvailability'] : null;
         $this->container['reportDeletionReason'] = isset($data['reportDeletionReason']) ? $data['reportDeletionReason'] : null;
@@ -307,8 +313,8 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
         if ($this->container['scanDomain'] === null) {
             $invalidProperties[] = "'scanDomain' can't be null";
         }
-        if ($this->container['scanUrlsRequested'] === null) {
-            $invalidProperties[] = "'scanUrlsRequested' can't be null";
+        if ($this->container['scanUrlsRequestedCount'] === null) {
+            $invalidProperties[] = "'scanUrlsRequestedCount' can't be null";
         }
         if ($this->container['scanPriority'] === null) {
             $invalidProperties[] = "'scanPriority' can't be null";
@@ -464,25 +470,73 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets scanUrlsRequested
+     * Gets scanUrlsRequestedCount
      *
      * @return 
      */
-    public function getScanUrlsRequested()
+    public function getScanUrlsRequestedCount()
     {
-        return $this->container['scanUrlsRequested'];
+        return $this->container['scanUrlsRequestedCount'];
     }
 
     /**
-     * Sets scanUrlsRequested
+     * Sets scanUrlsRequestedCount
      *
-     * @param  $scanUrlsRequested Array of URLs to scan. Duplicate URLs are automatically removed when multiple URLs are provided.
+     * @param  $scanUrlsRequestedCount scanUrlsRequestedCount
      *
      * @return $this
      */
-    public function setScanUrlsRequested($scanUrlsRequested)
+    public function setScanUrlsRequestedCount($scanUrlsRequestedCount)
     {
-        $this->container['scanUrlsRequested'] = $scanUrlsRequested;
+        $this->container['scanUrlsRequestedCount'] = $scanUrlsRequestedCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets scanUrlsProcessedCount
+     *
+     * @return 
+     */
+    public function getScanUrlsProcessedCount()
+    {
+        return $this->container['scanUrlsProcessedCount'];
+    }
+
+    /**
+     * Sets scanUrlsProcessedCount
+     *
+     * @param  $scanUrlsProcessedCount scanUrlsProcessedCount
+     *
+     * @return $this
+     */
+    public function setScanUrlsProcessedCount($scanUrlsProcessedCount)
+    {
+        $this->container['scanUrlsProcessedCount'] = $scanUrlsProcessedCount;
+
+        return $this;
+    }
+
+    /**
+     * Gets scanUrlsFailedCount
+     *
+     * @return 
+     */
+    public function getScanUrlsFailedCount()
+    {
+        return $this->container['scanUrlsFailedCount'];
+    }
+
+    /**
+     * Sets scanUrlsFailedCount
+     *
+     * @param  $scanUrlsFailedCount scanUrlsFailedCount
+     *
+     * @return $this
+     */
+    public function setScanUrlsFailedCount($scanUrlsFailedCount)
+    {
+        $this->container['scanUrlsFailedCount'] = $scanUrlsFailedCount;
 
         return $this;
     }
@@ -555,30 +609,6 @@ class OrderGetResponse implements ModelInterface, ArrayAccess
     public function setScanFeaturesExecuted($scanFeaturesExecuted)
     {
         $this->container['scanFeaturesExecuted'] = $scanFeaturesExecuted;
-
-        return $this;
-    }
-
-    /**
-     * Gets scanUrlsExecuted
-     *
-     * @return 
-     */
-    public function getScanUrlsExecuted()
-    {
-        return $this->container['scanUrlsExecuted'];
-    }
-
-    /**
-     * Sets scanUrlsExecuted
-     *
-     * @param  $scanUrlsExecuted scanUrlsExecuted
-     *
-     * @return $this
-     */
-    public function setScanUrlsExecuted($scanUrlsExecuted)
-    {
-        $this->container['scanUrlsExecuted'] = $scanUrlsExecuted;
 
         return $this;
     }

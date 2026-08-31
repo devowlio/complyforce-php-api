@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 **uuid** | [****](.md) |  | 
 **scanType** | [****](.md) |  | 
 **scanDomain** | [****](.md) |  | 
-**scanUrlsExecuted** | [****](.md) |  | [optional] 
+**scanUrlsRequestedCount** | [****](.md) |  | 
+**scanUrlsProcessedCount** | [****](.md) |  | [optional] 
+**scanUrlsFailedCount** | [****](.md) |  | [optional] 
 **createdAt** | [****](.md) |  | [optional] 
 **vendorBrand** | [**\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseVendorBrand**](OrderReportGetResponseVendorBrand.md) |  | 
 **report** | [**\DevOwl\ComplyforceApiClient\Model\OrderReportGetResponseReport**](OrderReportGetResponseReport.md) |  | 

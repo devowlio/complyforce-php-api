@@ -4,9 +4,64 @@ All URIs are relative to *https://api.complyforce.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**orderCancelPost**](OrderApi.md#ordercancelpost) | **POST** /order/cancel | Cancel order
 [**orderGet**](OrderApi.md#orderget) | **GET** /order | Get order
 [**orderPost**](OrderApi.md#orderpost) | **POST** /order | Create order
+[**orderorderUuidScanArtefactsGet**](OrderApi.md#orderorderuuidscanartefactsget) | **GET** /order/:orderUuid/scan-artefacts | Get scan artefact URLs for an order
 [**ordersGet**](OrderApi.md#ordersget) | **GET** /orders | Get orders overview
+
+# **orderCancelPost**
+> orderCancelPost($body)
+
+Cancel order
+
+Gracefully cancels an in-flight order before it reaches a final status.  Authentication accepts **one of**: vendor API key, vendor-dashboard JWT (Bearer), or `x-authentication-super-admin`. A single `orderCancelAuth` guard implements this OR semantics — do not register multiple guards, as the controller requires every guard to succeed. The processor stops pending work, lets in-flight URL scans finish, and emits a final `canceled` status.  Returns `204` when the cancel request is accepted, including when the order is already `canceled` (idempotent). Returns `422` when the order has already reached a non-cancelable final status (`completed`, `completedPartially`, or `error`).
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: orderCancelAuth
+$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('x-authentication-super-admin', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-authentication-super-admin', 'Bearer');
+
+$apiInstance = new DevOwl\ComplyforceApiClient\Api\OrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$body = new \DevOwl\ComplyforceApiClient\Model\OrderCancelRequest(); // \DevOwl\ComplyforceApiClient\Model\OrderCancelRequest | 
+
+try {
+    $apiInstance->orderCancelPost($body);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->orderCancelPost: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**\DevOwl\ComplyforceApiClient\Model\OrderCancelRequest**](../Model/OrderCancelRequest.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[orderCancelAuth](../../README.md#orderCancelAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderGet**
 > \DevOwl\ComplyforceApiClient\Model\InlineResponse200 orderGet($orderUuid, $statusUpdates, $report)
@@ -66,19 +121,16 @@ No authorization required
 
 Create order
 
-Accepting an order for a website scan with one, several, all, or the most relevant subpages.  #### Scan types (with examples) <details> <summary>Single page scan</summary> <p>Scans a single page of one website. Provide specific information about this page or a rough overview if the website's front page is scanned.</p>  **Request** ```json {   \"order\": {     \"scanType\": \"single\",     \"scanUrlsRequested\": [       \"https://shop.example.com/login\"     ],     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f80-4a27-8c1c-0e5a4d4ad00\",     \"scanType\": \"single\",     \"scanFeaturesRequested\": [       \"browseAgentVisionAi\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"shop.example.com\",     \"scanUrlsRequested\": [       \"https://shop.example.com/login\"     ],     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:00:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"1\",         \"uuid\": \"e1b4dcd4-2e50-4b3d-a6f5-3c13b5c7e20\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:00:00.000Z\",         \"createdAt\": \"2025-01-01T12:00:00.000Z\"       }     ]   } } ``` </details>  <details> <summary>Multiple pages scan</summary> <p>Scans at least two pages of one website. Allows you to check specific parts of a website.</p>  **Request** ```json {   \"order\": {     \"scanType\": \"multiple\",     \"scanUrlsRequested\": [       \"https://shop.example.com/login\",       \"https://shop.example.com/checkout\"     ],     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f81-4a27-8c1c-0e5a4d4ad01\",     \"scanType\": \"multiple\",     \"scanFeaturesRequested\": [       \"browseAgentVisionAi\",       \"informationObligationAgentLlmAi\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"shop.example.com\",     \"scanUrlsRequested\": [       \"https://shop.example.com/login\",       \"https://shop.example.com/checkout\"     ],     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:01:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"2\",         \"uuid\": \"e1b4dcd4-2e51-4b3d-a6f5-3c13b5c7e21\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:01:00.000Z\",         \"createdAt\": \"2025-01-01T12:01:00.000Z\"       }     ]   } } ``` </details>  <details> <summary>Most relevant pages scan</summary> <p>Finds and scans up to 15 subpages of one website that best represent the functionality of the website. Allows you to get a comprehensive view of the website without having to check all subpages.</p>  **Request** ```json {   \"order\": {     \"scanType\": \"mostRelevant\",     \"scanUrlsRequested\": [       \"newsroom.example.com\"     ],     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f82-4a27-8c1c-0e5a4d4ad02\",     \"scanType\": \"mostRelevant\",     \"scanFeaturesRequested\": [       \"informationObligationAgentLlmAi\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"newsroom.example.com\",     \"scanUrlsRequested\": [],     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:02:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"3\",         \"uuid\": \"e1b4dcd4-2e52-4b3d-a6f5-3c13b5c7e22\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:02:00.000Z\",         \"createdAt\": \"2025-01-01T12:02:00.000Z\"       }     ]   } } ``` </details>  <details> <summary>All pages scan</summary> <p>Finds all pages of one website based on the website's sitemap and scans them. Provides a complete view of the website. Fallbacks to home page menu extraction and search index data (if additional feature is allowed to use), if no sitemap exists.  `scanUrlsLimit` define the maximum pages to scan (default: `500`). You can overwrite the limit to up to `10000`. If the number of pages found is exceeded, the order will be canceled and scanning will not be billed (costs for additional features may still apply).</p>  **Request** ```json {   \"order\": {     \"scanType\": \"all\",     \"scanUrlsRequested\": [       \"careers.example.com\"     ],     \"scanUrlsLimit\": 1000,     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f83-4a27-8c1c-0e5a4d4ad03\",     \"scanType\": \"all\",     \"scanFeaturesRequested\": [       \"browseAgentVisionAi\",       \"consentComplianceAgent\",       \"archivingAgent\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"careers.example.com\",     \"scanUrlsRequested\": [],     \"scanUrlsLimit\": 1000,     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:03:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"4\",         \"uuid\": \"e1b4dcd4-2e53-4b3d-a6f5-3c13b5c7e23\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:03:00.000Z\",         \"createdAt\": \"2025-01-01T12:03:00.000Z\"       }     ]   } } ``` </details>
+Accepting an order for a website scan with one, several, all, or the most relevant subpages.  Authentication accepts **one of**: vendor API key or vendor-dashboard JWT (Bearer). A single `orderCreateAuth` guard implements this OR semantics — do not register multiple guards, as the controller requires every guard to succeed. The vendor API key remains the primary integration path for external integrators.  #### Scan types (with examples) <details> <summary>Single page scan</summary> <p>Scans a single page of one website. Provide specific information about this page or a rough overview if the website's front page is scanned.</p>  **Request** ```json {   \"order\": {     \"scanType\": \"single\",     \"scanUrlsRequested\": [       \"https://shop.example.com/login\"     ],     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f80-4a27-8c1c-0e5a4d4ad00\",     \"scanType\": \"single\",     \"scanFeaturesRequested\": [       \"browseAgentVisionAi\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"shop.example.com\",     \"scanUrlsRequestedCount\": 1,     \"scanUrlsFailedCount\": 0,     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:00:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"1\",         \"uuid\": \"e1b4dcd4-2e50-4b3d-a6f5-3c13b5c7e20\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:00:00.000Z\",         \"createdAt\": \"2025-01-01T12:00:00.000Z\"       }     ]   } } ``` </details>  <details> <summary>Multiple pages scan</summary> <p>Scans at least two pages of one website. Allows you to check specific parts of a website.</p>  **Request** ```json {   \"order\": {     \"scanType\": \"multiple\",     \"scanUrlsRequested\": [       \"https://shop.example.com/login\",       \"https://shop.example.com/checkout\"     ],     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f81-4a27-8c1c-0e5a4d4ad01\",     \"scanType\": \"multiple\",     \"scanFeaturesRequested\": [       \"browseAgentVisionAi\",       \"informationObligationAgentLlmAi\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"shop.example.com\",     \"scanUrlsRequestedCount\": 2,     \"scanUrlsFailedCount\": 0,     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:01:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"2\",         \"uuid\": \"e1b4dcd4-2e51-4b3d-a6f5-3c13b5c7e21\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:01:00.000Z\",         \"createdAt\": \"2025-01-01T12:01:00.000Z\"       }     ]   } } ``` </details>  <details> <summary>Most relevant pages scan</summary> <p>Finds and scans up to 15 subpages of one website that best represent the functionality of the website. Allows you to get a comprehensive view of the website without having to check all subpages.</p>  **Request** ```json {   \"order\": {     \"scanType\": \"mostRelevant\",     \"scanUrlsRequested\": [       \"newsroom.example.com\"     ],     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f82-4a27-8c1c-0e5a4d4ad02\",     \"scanType\": \"mostRelevant\",     \"scanFeaturesRequested\": [       \"informationObligationAgentLlmAi\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"newsroom.example.com\",     \"scanUrlsRequestedCount\": 1,     \"scanUrlsFailedCount\": 0,     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:02:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"3\",         \"uuid\": \"e1b4dcd4-2e52-4b3d-a6f5-3c13b5c7e22\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:02:00.000Z\",         \"createdAt\": \"2025-01-01T12:02:00.000Z\"       }     ]   } } ``` </details>  <details> <summary>All pages scan</summary> <p>Finds all pages of one website based on the website's sitemap and scans them. Provides a complete view of the website. Fallbacks to home page menu extraction and search index data (if additional feature is allowed to use), if no sitemap exists.  `scanUrlsLimit` define the maximum pages to scan (default: `500`). You can overwrite the limit to up to `10000`. If the number of pages found is exceeded, the order will be canceled and scanning will not be billed (costs for additional features may still apply).</p>  **Request** ```json {   \"order\": {     \"scanType\": \"all\",     \"scanUrlsRequested\": [       \"careers.example.com\"     ],     \"scanUrlsLimit\": 1000,     \"channel\": {       \"uuid\": \"b5c03f6a-8fa8-4c24-8ec8-2d0f3388f4f1\"     }   } } ```  **Response** ```json {   \"order\": {     \"uuid\": \"d5c0c97f-4f83-4a27-8c1c-0e5a4d4ad03\",     \"scanType\": \"all\",     \"scanFeaturesRequested\": [       \"browseAgentVisionAi\",       \"consentComplianceAgent\",       \"archivingAgent\",       \"orderPreparationUrlsEnrichment\"     ],     \"scanDomain\": \"careers.example.com\",     \"scanUrlsRequestedCount\": 1,     \"scanUrlsFailedCount\": 0,     \"scanUrlsLimit\": 1000,     \"scanPriority\": 50,     \"status\": \"created\",     \"createdAt\": \"2025-01-01T12:03:00.000Z\",     \"statusUpdates\": [       {         \"id\": \"4\",         \"uuid\": \"e1b4dcd4-2e53-4b3d-a6f5-3c13b5c7e23\",         \"status\": \"created\",         \"updatedAt\": \"2025-01-01T12:03:00.000Z\",         \"createdAt\": \"2025-01-01T12:03:00.000Z\"       }     ]   } } ``` </details>
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: apiKey
-$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
+// Configure API key authorization: orderCreateAuth
+$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');// Configure API key authorization: signedMainContract
-$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('x-api-key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('x-api-key', 'Bearer');
+// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
 
 $apiInstance = new DevOwl\ComplyforceApiClient\Api\OrderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -109,11 +161,65 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [signedMainContract](../../README.md#signedMainContract)
+[orderCreateAuth](../../README.md#orderCreateAuth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **orderorderUuidScanArtefactsGet**
+> \DevOwl\ComplyforceApiClient\Model\OrderScanArtefactsGot orderorderUuidScanArtefactsGet($orderUuid)
+
+Get scan artefact URLs for an order
+
+Looks up signed S3 download URLs for crawler scan artefacts (before/after consent captures and traces) for a single order.  Artefacts are only mirrored when the order was created with `traceEnabled`. Absent or expired mirrors yield an empty `artefacts` map. Signed URLs expire with the S3 object lifetime; callers must treat them as short-lived download links, not permanent storage references.  Authentication requires a vendor-dashboard JWT (Bearer). When the caller may not read the order, the response is `200` with an empty `artefacts` map (no existence leak).
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: jwt
+$config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = DevOwl\ComplyforceApiClient\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+
+$apiInstance = new DevOwl\ComplyforceApiClient\Api\OrderApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$orderUuid = new \DevOwl\ComplyforceApiClient\Model\null(); //  | Order UUID to look up.
+
+try {
+    $result = $apiInstance->orderorderUuidScanArtefactsGet($orderUuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling OrderApi->orderorderUuidScanArtefactsGet: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **orderUuid** | [****](../Model/.md)| Order UUID to look up. |
+
+### Return type
+
+[**\DevOwl\ComplyforceApiClient\Model\OrderScanArtefactsGot**](../Model/OrderScanArtefactsGot.md)
+
+### Authorization
+
+[jwt](../../README.md#jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

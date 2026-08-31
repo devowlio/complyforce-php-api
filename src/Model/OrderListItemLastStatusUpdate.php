@@ -60,6 +60,7 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => '',
         'status' => '',
         'errorType' => '',
+        'log' => '',
         'updatedAt' => '',
         'createdAt' => ''
     ];
@@ -74,6 +75,7 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'status' => null,
         'errorType' => null,
+        'log' => null,
         'updatedAt' => 'date-time',
         'createdAt' => 'date-time'
     ];
@@ -109,6 +111,7 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'uuid',
         'status' => 'status',
         'errorType' => 'errorType',
+        'log' => 'log',
         'updatedAt' => 'updatedAt',
         'createdAt' => 'createdAt'
     ];
@@ -123,6 +126,7 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'setUuid',
         'status' => 'setStatus',
         'errorType' => 'setErrorType',
+        'log' => 'setLog',
         'updatedAt' => 'setUpdatedAt',
         'createdAt' => 'setCreatedAt'
     ];
@@ -137,6 +141,7 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         'uuid' => 'getUuid',
         'status' => 'getStatus',
         'errorType' => 'getErrorType',
+        'log' => 'getLog',
         'updatedAt' => 'getUpdatedAt',
         'createdAt' => 'getCreatedAt'
     ];
@@ -203,6 +208,7 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
         $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['errorType'] = isset($data['errorType']) ? $data['errorType'] : null;
+        $this->container['log'] = isset($data['log']) ? $data['log'] : null;
         $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
         $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
     }
@@ -332,6 +338,30 @@ class OrderListItemLastStatusUpdate implements ModelInterface, ArrayAccess
     public function setErrorType($errorType)
     {
         $this->container['errorType'] = $errorType;
+
+        return $this;
+    }
+
+    /**
+     * Gets log
+     *
+     * @return 
+     */
+    public function getLog()
+    {
+        return $this->container['log'];
+    }
+
+    /**
+     * Sets log
+     *
+     * @param  $log log
+     *
+     * @return $this
+     */
+    public function setLog($log)
+    {
+        $this->container['log'] = $log;
 
         return $this;
     }

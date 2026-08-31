@@ -60,7 +60,6 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
         'orderUuid' => '',
         'status' => '',
         'sitemapDiscoveredUrls' => '',
-        'latestProcessedUrl' => '',
         'processedUrls' => '',
         'totalUrls' => '',
         'error' => '\DevOwl\ComplyforceApiClient\Model\OrderProgressResponseError'
@@ -75,7 +74,6 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
         'orderUuid' => 'uuid',
         'status' => null,
         'sitemapDiscoveredUrls' => null,
-        'latestProcessedUrl' => 'uri',
         'processedUrls' => null,
         'totalUrls' => null,
         'error' => null
@@ -111,7 +109,6 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
         'orderUuid' => 'orderUuid',
         'status' => 'status',
         'sitemapDiscoveredUrls' => 'sitemapDiscoveredUrls',
-        'latestProcessedUrl' => 'latestProcessedUrl',
         'processedUrls' => 'processedUrls',
         'totalUrls' => 'totalUrls',
         'error' => 'error'
@@ -126,7 +123,6 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
         'orderUuid' => 'setOrderUuid',
         'status' => 'setStatus',
         'sitemapDiscoveredUrls' => 'setSitemapDiscoveredUrls',
-        'latestProcessedUrl' => 'setLatestProcessedUrl',
         'processedUrls' => 'setProcessedUrls',
         'totalUrls' => 'setTotalUrls',
         'error' => 'setError'
@@ -141,7 +137,6 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
         'orderUuid' => 'getOrderUuid',
         'status' => 'getStatus',
         'sitemapDiscoveredUrls' => 'getSitemapDiscoveredUrls',
-        'latestProcessedUrl' => 'getLatestProcessedUrl',
         'processedUrls' => 'getProcessedUrls',
         'totalUrls' => 'getTotalUrls',
         'error' => 'getError'
@@ -208,7 +203,6 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
         $this->container['orderUuid'] = isset($data['orderUuid']) ? $data['orderUuid'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['sitemapDiscoveredUrls'] = isset($data['sitemapDiscoveredUrls']) ? $data['sitemapDiscoveredUrls'] : null;
-        $this->container['latestProcessedUrl'] = isset($data['latestProcessedUrl']) ? $data['latestProcessedUrl'] : null;
         $this->container['processedUrls'] = isset($data['processedUrls']) ? $data['processedUrls'] : null;
         $this->container['totalUrls'] = isset($data['totalUrls']) ? $data['totalUrls'] : null;
         $this->container['error'] = isset($data['error']) ? $data['error'] : null;
@@ -318,30 +312,6 @@ class OrderProgressResponse implements ModelInterface, ArrayAccess
     public function setSitemapDiscoveredUrls($sitemapDiscoveredUrls)
     {
         $this->container['sitemapDiscoveredUrls'] = $sitemapDiscoveredUrls;
-
-        return $this;
-    }
-
-    /**
-     * Gets latestProcessedUrl
-     *
-     * @return 
-     */
-    public function getLatestProcessedUrl()
-    {
-        return $this->container['latestProcessedUrl'];
-    }
-
-    /**
-     * Sets latestProcessedUrl
-     *
-     * @param  $latestProcessedUrl latestProcessedUrl
-     *
-     * @return $this
-     */
-    public function setLatestProcessedUrl($latestProcessedUrl)
-    {
-        $this->container['latestProcessedUrl'] = $latestProcessedUrl;
 
         return $this;
     }

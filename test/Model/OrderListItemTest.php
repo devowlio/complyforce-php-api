@@ -181,4 +181,18 @@ class OrderListItemTest extends TestCase
     public function testPropertyVendorBrandChannel()
     {
     }
+
+    /**
+     * Test attribute "createdByUser"
+     */
+    public function testPropertyCreatedByUser()
+    {
+    }
+
+    /**
+     * Test attribute "vendorApiKey"
+     */
+    public function testPropertyVendorApiKey()
+    {
+    }
 }
