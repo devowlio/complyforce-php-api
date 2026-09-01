@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderProgressResponseError
+ * OrderListItemVendorBrandChannel
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \DevOwl\ComplyforceApiClient\ObjectSerializer;
 
 /**
- * OrderProgressResponseError Class Doc Comment
+ * OrderListItemVendorBrandChannel Class Doc Comment
  *
  * @category Class
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderProgressResponseError implements ModelInterface, ArrayAccess
+class OrderListItemVendorBrandChannel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OrderProgressResponse_error';
+    protected static $swaggerModelName = 'OrderListItem_vendorBrandChannel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,9 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => '',
-        'message' => ''
+        'id' => '',
+        'uuid' => '',
+        'name' => ''
     ];
 
     /**
@@ -66,8 +67,9 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'message' => null
+        'id' => null,
+        'uuid' => 'uuid',
+        'name' => null
     ];
 
     /**
@@ -97,8 +99,9 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'message' => 'message'
+        'id' => 'id',
+        'uuid' => 'uuid',
+        'name' => 'name'
     ];
 
     /**
@@ -107,8 +110,9 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'message' => 'setMessage'
+        'id' => 'setId',
+        'uuid' => 'setUuid',
+        'name' => 'setName'
     ];
 
     /**
@@ -117,8 +121,9 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'message' => 'getMessage'
+        'id' => 'getId',
+        'uuid' => 'getUuid',
+        'name' => 'getName'
     ];
 
     /**
@@ -179,8 +184,9 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['uuid'] = isset($data['uuid']) ? $data['uuid'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -192,6 +198,15 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['uuid'] === null) {
+            $invalidProperties[] = "'uuid' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -208,49 +223,73 @@ class OrderProgressResponseError implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets id
      *
      * @return 
      */
-    public function getType()
+    public function getId()
     {
-        return $this->container['type'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets type
+     * Sets id
      *
-     * @param  $type type
+     * @param  $id id
      *
      * @return $this
      */
-    public function setType($type)
+    public function setId($id)
     {
-        $this->container['type'] = $type;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets uuid
      *
      * @return 
      */
-    public function getMessage()
+    public function getUuid()
     {
-        return $this->container['message'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets message
+     * Sets uuid
      *
-     * @param  $message message
+     * @param  $uuid uuid
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setUuid($uuid)
     {
-        $this->container['message'] = $message;
+        $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return 
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param  $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

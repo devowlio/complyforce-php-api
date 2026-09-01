@@ -102,16 +102,6 @@ class OrderApiTest extends TestCase
     }
 
     /**
-     * Test case for orderorderUuidScanArtefactsGet
-     *
-     * Get scan artefact URLs for an order.
-     *
-     */
-    public function testOrderorderUuidScanArtefactsGet()
-    {
-    }
-
-    /**
      * Test case for ordersGet
      *
      * Get orders overview.

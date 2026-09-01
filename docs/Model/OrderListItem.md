@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **reportAvailability** | [****](.md) |  | 
 **reportAvailableUntil** | [****](.md) |  | [optional] 
 **vendorBrand** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand**](OrderListItemVendorBrand.md) |  | 
-**vendorBrandChannel** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand**](OrderListItemVendorBrand.md) |  | 
+**vendorBrandChannel** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrandChannel**](OrderListItemVendorBrandChannel.md) |  | 
 **createdByUser** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemCreatedByUser**](OrderListItemCreatedByUser.md) |  | [optional] 
 **vendorApiKey** | [**\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorApiKey**](OrderListItemVendorApiKey.md) |  | [optional] 
 

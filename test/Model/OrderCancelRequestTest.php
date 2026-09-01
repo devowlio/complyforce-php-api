@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * OrderCancelRequestTest Class Doc Comment
  *
  * @category    Class
- * @description Cancel order request with order UUID and optional cancel reason.
+ * @description Order to cancel and optional cancel reason.
  * @package     DevOwl\ComplyforceApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen

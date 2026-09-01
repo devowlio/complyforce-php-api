@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderScanArtefactsGotTest
+ * OrderListItemVendorBrandChannelTest
  *
  * PHP version 5
  *
@@ -31,15 +31,15 @@ namespace DevOwl\ComplyforceApiClient;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OrderScanArtefactsGotTest Class Doc Comment
+ * OrderListItemVendorBrandChannelTest Class Doc Comment
  *
  * @category    Class
- * @description Scan artefact lookup result for one order
+ * @description OrderListItemVendorBrandChannel
  * @package     DevOwl\ComplyforceApiClient
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class OrderScanArtefactsGotTest extends TestCase
+class OrderListItemVendorBrandChannelTest extends TestCase
 {
 
     /**
@@ -71,16 +71,30 @@ class OrderScanArtefactsGotTest extends TestCase
     }
 
     /**
-     * Test "OrderScanArtefactsGot"
+     * Test "OrderListItemVendorBrandChannel"
      */
-    public function testOrderScanArtefactsGot()
+    public function testOrderListItemVendorBrandChannel()
     {
     }
 
     /**
-     * Test attribute "artefacts"
+     * Test attribute "id"
      */
-    public function testPropertyArtefacts()
+    public function testPropertyId()
+    {
+    }
+
+    /**
+     * Test attribute "uuid"
+     */
+    public function testPropertyUuid()
+    {
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
     {
     }
 }
