@@ -320,7 +320,7 @@ class OrderCreate implements ModelInterface, ArrayAccess
     /**
      * Sets traceEnabled
      *
-     * @param  $traceEnabled When set by an admin user, overrides the API config default for per-order crawler tracing and scan-artefact mirror writes.
+     * @param  $traceEnabled Admin only. When true, keeps detailed diagnostic captures for this order after the scan finishes.
      *
      * @return $this
      */

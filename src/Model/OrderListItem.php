@@ -71,7 +71,7 @@ class OrderListItem implements ModelInterface, ArrayAccess
         'reportAvailability' => '',
         'reportAvailableUntil' => '',
         'vendorBrand' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand',
-        'vendorBrandChannel' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand',
+        'vendorBrandChannel' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrandChannel',
         'createdByUser' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemCreatedByUser',
         'vendorApiKey' => '\DevOwl\ComplyforceApiClient\Model\OrderListItemVendorApiKey'
     ];
@@ -670,7 +670,7 @@ class OrderListItem implements ModelInterface, ArrayAccess
     /**
      * Gets vendorBrandChannel
      *
-     * @return \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand
+     * @return \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrandChannel
      */
     public function getVendorBrandChannel()
     {
@@ -680,7 +680,7 @@ class OrderListItem implements ModelInterface, ArrayAccess
     /**
      * Sets vendorBrandChannel
      *
-     * @param \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrand $vendorBrandChannel vendorBrandChannel
+     * @param \DevOwl\ComplyforceApiClient\Model\OrderListItemVendorBrandChannel $vendorBrandChannel vendorBrandChannel
      *
      * @return $this
      */

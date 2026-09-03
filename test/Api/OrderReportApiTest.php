@@ -72,16 +72,6 @@ class OrderReportApiTest extends TestCase
     }
 
     /**
-     * Test case for orderProgressGet
-     *
-     * Get order progress.
-     *
-     */
-    public function testOrderProgressGet()
-    {
-    }
-
-    /**
      * Test case for orderReportDelete
      *
      * Delete order report.

@@ -35,7 +35,7 @@ use \DevOwl\ComplyforceApiClient\ObjectSerializer;
  * OrderCancelRequest Class Doc Comment
  *
  * @category Class
- * @description Cancel order request with order UUID and optional cancel reason.
+ * @description Order to cancel and optional cancel reason.
  * @package  DevOwl\ComplyforceApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -248,7 +248,7 @@ class OrderCancelRequest implements ModelInterface, ArrayAccess
     /**
      * Sets cancelReason
      *
-     * @param  $cancelReason Optional reason for cancellation (vendor dashboard may require a selection).
+     * @param  $cancelReason Optional reason why the order is being canceled.
      *
      * @return $this
      */

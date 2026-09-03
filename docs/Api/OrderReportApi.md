@@ -4,63 +4,15 @@ All URIs are relative to *https://api.complyforce.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**orderProgressGet**](OrderReportApi.md#orderprogressget) | **GET** /order/progress | Get order progress
 [**orderReportDelete**](OrderReportApi.md#orderreportdelete) | **DELETE** /order/report | Delete order report
 [**orderReportGet**](OrderReportApi.md#orderreportget) | **GET** /order/report | Get order report
-
-# **orderProgressGet**
-> \DevOwl\ComplyforceApiClient\Model\OrderProgressResponse orderProgressGet($orderUuid)
-
-Get order progress
-
-Current order workflow status and URL processing counters.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$apiInstance = new DevOwl\ComplyforceApiClient\Api\OrderReportApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$orderUuid = new \DevOwl\ComplyforceApiClient\Model\null(); //  | 
-
-try {
-    $result = $apiInstance->orderProgressGet($orderUuid);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling OrderReportApi->orderProgressGet: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **orderUuid** | [****](../Model/.md)|  |
-
-### Return type
-
-[**\DevOwl\ComplyforceApiClient\Model\OrderProgressResponse**](../Model/OrderProgressResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **orderReportDelete**
 > orderReportDelete($body)
 
 Delete order report
+
+Deletes the stored compliance report for an order. Authenticate with a vendor API key (`x-api-key`).
 
 ### Example
 ```php
@@ -113,7 +65,7 @@ void (empty response body)
 
 Get order report
 
-Retrieve full report data and report link for completed orders.
+Returns the full compliance report and report link for a completed order. Authenticate with a vendor API key (`x-api-key`).
 
 ### Example
 ```php
