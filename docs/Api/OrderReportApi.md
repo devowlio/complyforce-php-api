@@ -65,7 +65,7 @@ void (empty response body)
 
 Get order report
 
-Returns the full compliance report and report link for a completed order. Authenticate with a vendor API key (`x-api-key`).
+Returns the report results (risk score and whether data protection violations were found) and the report link for a completed order, together with the brand details and latest status. Authenticate with a vendor API key (`x-api-key`).
 
 ### Example
 ```php
